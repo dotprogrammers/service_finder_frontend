@@ -1,4 +1,34 @@
+import React, { useMemo, useState } from "react";
+import { Input, Button, Dropdown } from "antd";
+import { SearchOutlined, DownOutlined } from "@ant-design/icons";
+import "antd/dist/reset.css";
+
 export default function HomeBanner() {
+    const [category, setCategory] = useState(null);
+
+    const categories = useMemo(
+        () => [
+            { key: "murer", label: "Murer" },
+            { key: "elektriker", label: "Elektriker" },
+            { key: "vvs", label: "VVS" },
+            { key: "rengoring", label: "Rengøring" },
+            { key: "flytning", label: "Flytning" },
+            { key: "maler", label: "Maler" },
+        ],
+        []
+    );
+
+    const categoryMenu = useMemo(
+        () => ({
+            items: categories.map((c) => ({
+                key: c.key,
+                label: c.label,
+                onClick: () => setCategory(c),
+            })),
+        }),
+        [categories]
+    );
+
     return (
         <section className="w-full">
             <div
@@ -26,63 +56,69 @@ export default function HomeBanner() {
                         Opret en opgave og få tilbud, eller tilmeld din virksomhed og få mere at lave.
                     </p>
 
-                    {/* Search row */}
+                    {/* Search row like image */}
                     <form
                         action="service-list"
                         method="get"
-                        className="mt-8 w-full max-w-5xl"
+                        className="mt-10 w-full max-w-5xl"
                     >
-                        <div className="flex w-full flex-col gap-3 rounded-2xl bg-white/10 p-3 backdrop-blur-sm sm:flex-row sm:items-center sm:gap-4">
-                            {/* Input */}
-                            <div className="relative flex-1">
-                                <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-600">
-                                    {/* crosshair icon */}
-                                    <svg
-                                        width="18"
-                                        height="18"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        aria-hidden="true"
+                        {/* Outer pill */}
+                        <div className="flex w-full flex-col overflow-hidden rounded-[999px] bg-white shadow-[0_12px_35px_rgba(0,0,0,0.18)] sm:flex-row">
+                            {/* Search input */}
+                            <div className="flex flex-1 items-center">
+                                <div className="flex h-16 w-full items-center">
+                                    <span className="pl-6 pr-2 text-slate-400">
+                                        <SearchOutlined />
+                                    </span>
+
+                                    <Input
+                                        name="q"
+                                        placeholder="Search for a task and get quotes, c"
+                                        bordered={false}
+                                        className="!h-16 !rounded-none !text-[15px]"
+                                    />
+                                </div>
+
+                                {/* Vertical divider */}
+                                <div className="hidden h-10 w-px bg-slate-200 sm:block" />
+                            </div>
+
+                            {/* Category dropdown */}
+                            <div className="flex items-center justify-between sm:w-[320px]">
+                                <Dropdown
+                                    menu={categoryMenu}
+                                    trigger={["click"]}
+                                    placement="bottomLeft"
+                                >
+                                    <button
+                                        type="button"
+                                        className="flex h-16 w-full items-center justify-between px-6 text-left text-[15px] text-slate-700"
                                     >
-                                        <path
-                                            d="M12 2v3m0 14v3M2 12h3m14 0h3"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                            strokeLinecap="round"
-                                        />
-                                        <path
-                                            d="M12 19a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                        />
-                                        <path
-                                            d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                        />
-                                    </svg>
-                                </span>
+                                        <span className={`${category ? "text-slate-900" : "text-slate-600"}`}>
+                                            {category ? category.label : "Choose a category"}
+                                        </span>
+                                        <DownOutlined className="text-slate-400" />
+                                    </button>
+                                </Dropdown>
 
-                                <input type="hidden" name="change_address_new" id="change_address_new" value="" />
-
-                                <input
-                                    id="autocomplete"
-                                    name="q"
-                                    type="text"
-                                    autoComplete="off"
-                                    placeholder="Skriv hvad du søger, og eventuelt by (Murer, københavn)..."
-                                    className="h-14 w-full rounded-xl bg-white px-12 text-sm text-slate-800 shadow-sm outline-none ring-1 ring-black/5 placeholder:text-slate-500 focus:ring-2 focus:ring-green-600"
-                                />
+                                {/* Vertical divider */}
+                                <div className="hidden h-10 w-px bg-slate-200 sm:block" />
                             </div>
 
                             {/* Button */}
-                            <button
-                                type="submit"
-                                className="h-14 shrink-0 rounded-xl bg-green-600 px-8 text-sm font-semibold text-white shadow-sm hover:bg-green-700 active:bg-green-800"
-                            >
-                                Klik her for at søge
-                            </button>
+                            <div className="sm:w-[280px]">
+                                <Button
+                                    htmlType="submit"
+                                    type="primary"
+                                    className="!h-16 !w-full !rounded-none !border-0  !text-[15px] !font-semibold "
+                                >
+                                    Search for quotes
+                                </Button>
+                            </div>
                         </div>
+
+                        {/* Hidden field so you can submit selected category */}
+                        <input type="hidden" name="category" value={category?.key || ""} />
                     </form>
                 </div>
             </div>
