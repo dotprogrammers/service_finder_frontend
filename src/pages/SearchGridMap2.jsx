@@ -1,0 +1,391 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+export default function SearchGridMap2() {
+  return (
+    <>
+   
+  
+       Content 
+      <div className="page-content">
+
+      <div className="sf-search-vbar-panel-close"><i className="fa fa-close"></i></div>
+      <div className="sf-seach-vertical sf-search-bar-panel">
+      <div className="search-form">
+      <form className="clearfix search-providers" method="get">
+      <div className="sf-searchbar-box">
+      <ul className="sf-searchbar-area">
+      <li>
+      <div className="sf-search-title">
+      <label>Keyword</label>
+      <span className="sf-search-icon"><img alt="" src="/images/search-bar/keyword.png"/></span>
+      </div>
+      <div className="sf-search-feild">
+      <input className="form-control sf-form-control" id="keyword" name="keyword" placeholder="Keyword" type="text" value=""/>
+      </div>
+      </li>
+      <li>
+      <div className="sf-search-title">
+      <label>Location</label>
+      <span className="sf-search-icon"><img alt="" src="/images/search-bar/location-pin.png"/></span>
+      </div>
+      <div className="sf-search-feild">
+      <input autoComplete="off" className="form-control sf-form-control pac-target-input" id="searchAddress" name="searchAddress" placeholder="Address" type="text" value=""/>
+      </div>
+      </li>
+      <li>
+      <div className="sf-search-title">
+      <label>Category</label>
+      <span className="sf-search-icon"><img alt="" src="/images/search-bar/maintenance.png"/></span>
+      </div>
+      <div className="sf-search-feild">
+      <select className="form-control sf-form-control aon-categories-select sf-select-box" id="categorysrh" name="catid" title="Category">
+      <option className="bs-title-option" value="">Select a Category</option>
+      <option data-content="&lt;img className='childcat-img' width='50' height='auto' src=images\cat-thum\cat-1.jpg&gt;
+                                        &lt;span className='childcat'&gt;Cab Service&lt;/span&gt;" value="17">Cab Service
+                                      </option>
+      <option data-content="&lt;img className='childcat-img' width='50' height='auto' src=images\cat-thum\cat-2.jpg&gt;
+                                        &lt;span className='childcat'&gt;Car Dealers&lt;/span&gt;" value="30">Car Dealers
+                                      </option>
+      <option data-content="&lt;img className='childcat-img' width='50' height='auto' src=images\cat-thum\cat-3.jpg&gt;
+                                        &lt;span className='childcat'&gt;Food &amp; Drink&lt;/span&gt;" value="19">Food &amp; Drink
+                                      </option>
+      <option data-content="&lt;img className='childcat-img' width='50' height='auto' src=images\cat-thum\cat-4.jpg&gt;
+                                        &lt;span className='childcat'&gt;Plumber&lt;/span&gt;" value="19">Plumber
+                                      </option>
+      <option data-content="&lt;img className='childcat-img' width='50' height='auto' src=images\cat-thum\cat-5.jpg&gt;
+                                        &lt;span className='childcat'&gt;Electrician&lt;/span&gt;" value="19">Electrician 
+                                      </option>
+      </select>
+      </div>
+      </li>
+      <li>
+      <div className="sf-search-title">
+      <label>Country</label>
+      <span className="sf-search-icon"><img alt="" src="/images/search-bar/globe.png"/></span>
+      </div>
+      <div className="sf-search-feild">
+      <select className="sf-select-box form-control sf-form-control bs-select-hidden" data-header="Select a Country" data-live-search="true" id="country" name="country" title="Country">
+      <option className="bs-title-option" value="">Country</option>
+      <option value="">Select Country</option>
+      <option value="Turkey">Turkey</option>
+      <option value="United States">United States</option>
+      </select>
+      </div>
+      </li>
+      <li>
+      <div className="sf-search-title">
+      <label>City</label>
+      <span className="sf-search-icon"><img alt="" src="/images/search-bar/city.png"/></span>
+      </div>
+      <div className="sf-search-feild">
+      <select className="sf-select-box form-control sf-form-control bs-select-hidden" data-header="Select a City" data-live-search="true" id="city" name="city" title="City">
+      <option className="bs-title-option" value="">City</option>
+      <option value="">Select City</option>
+      </select>
+      </div>
+      </li>
+      <li>
+      <div className="sf-search-title">
+      <label>Filter by price interval:</label>
+      <span className="sf-search-icon"><img alt="" src="/images/search-bar/city.png"/></span>
+      </div>
+      <div className="sf-search-feild">
+      <input className="span2" data-slider-max="1000" data-slider-min="10" data-slider-step="5" data-slider-value="[250,450]" id="ex2" type="text" value=""/>
+      <b className="sf-left-value">€ 10</b>
+      <b className="sf-right-value">€ 1000</b>
+      </div>
+      </li>
+      <li>
+      <div className="sf-search-title">
+      <label>Filter by Radius:</label>
+      <span className="sf-search-icon"><img alt="" src="/images/search-bar/city.png"/></span>
+      </div>
+      <div className="sf-search-feild">
+      <input data-slider-id="ex1Slider" data-slider-max="20" data-slider-min="0" data-slider-step="1" data-slider-value="14" id="ex3" type="text"/>
+      <b className="sf-left-value">€ 10</b>
+      <b className="sf-right-value">€ 1000</b>
+      </div>
+      </li>
+      </ul>
+      <button className="site-button sf-search-btn" type="button"><i className="fa fa-search"></i> Search Now</button>
+      </div>
+      </form>
+      </div>
+      </div>
+
+
+      <div className="aon-search-result-wrap aon-search-withMap">
+
+      <div className="sf-search-result-top sf-search-result-first flex-wrap d-flex justify-content-between align-items-center">
+      <div className="sf-search-result-title"> <h5>Showing 1 – 10 of 16 results</h5></div>
+      <div className="sf-search-result-option">
+      <ul className="sf-search-sortby">
+      <li className="sf-select-sort-by">
+      <select className="sf-select-box form-control sf-form-control bs-select-hidden" id="setorderby" name="setorderby" title="SORT BY">
+      <option className="bs-title-option" value="">SORT BY</option>
+      <option value="rating">Rating</option>
+      <option value="title">Title</option>
+      <option value="distance">Distance</option>
+      </select>
+      </li>
+      <li>
+      <select className="sf-select-box form-control sf-form-control bs-select-hidden" id="setorder" name="setorder" title="DESC">
+      <option className="bs-title-option" value="">DESC</option>
+      <option value="asc">ASC</option>
+      <option value="desc">DESC</option>
+      </select>
+      </li>
+      <li>
+      <select className="sf-select-box form-control sf-form-control bs-select-hidden" id="numberofpages" name="numberofpages" title="9">
+      <option className="bs-title-option" value="">9</option>
+      <option value="9">9</option>
+      <option value="12">12</option>
+      <option value="15">15</option>
+      <option value="20">20</option>
+      <option value="25">25</option>
+      <option value="30">30</option>
+      </select>
+      </li>
+      </ul>
+      <ul className="sf-search-grid-option" id="viewTypes">
+      <li data-view="grid-3">
+      <button className="btn btn-border btn-icon" type="button"><i className="fa fa-th"></i></button>
+      </li>
+      <li className="active" data-view="listview">
+      <button className="btn btn-border btn-icon" type="button"><i className="fa fa-th-list"></i></button>
+      </li>
+      </ul>
+      </div>
+      </div>
+
+
+      <div className="sf-search-result-btn flex-wrap d-flex justify-content-end">
+      <button className="site-button search-filtter-btn"><i className="fa fa-filter"></i> Search Filtter</button>
+      <button className="site-button view-map-btn"><i className="fa fa-map-o"></i> View Map</button>
+      </div>
+
+
+      <div className="row">
+
+      <div className="col-md-6">
+      <div className="aon-ow-provider-wrap">
+      <div className="aon-ow-provider">
+      <div className="aon-ow-top">
+      <div className="aon-pro-check"><span><i className="fa fa-check"></i></span></div>
+      <div className="aon-pro-favorite"><a href="#"><i className="fa fa-heart-o"></i></a></div>
+      <div className="aon-ow-info">
+      <h4 className="aon-title"><Link to="/profile-full"/>Colin Farrell</h4>
+      <span>Queens, United States</span>
+      </div>
+      </div>
+      <div className="aon-ow-mid">
+      <div className="aon-ow-media">
+      <Link to="/profile-full"/><img alt="" src="/images/providers/1.jpg"/>
+      </div>
+      <p>Through our expertise, technological knowledge, global presence and bespoke.</p>
+      <div className="aon-ow-pro-rating">
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star text-gray"></span>
+      </div>
+      </div>
+      </div>
+      <div className="aon-ow-bottom">
+      <Link to="/profile-full"/>Request A Quote
+      </div>
+      </div>
+      </div>
+
+      <div className="col-md-6">
+      <div className="aon-ow-provider-wrap">
+      <div className="aon-ow-provider">
+      <div className="aon-ow-top">
+      <div className="aon-pro-check"><span><i className="fa fa-check"></i></span></div>
+      <div className="aon-pro-favorite"><a href="#"><i className="fa fa-heart-o"></i></a></div>
+      <div className="aon-ow-info">
+      <h4 className="aon-title"><Link to="/profile-full"/>Jackie Chan</h4>
+      <span>Queens, United States</span>
+      </div>
+      </div>
+      <div className="aon-ow-mid">
+      <div className="aon-ow-media">
+      <Link to="/profile-full"/><img alt="" src="/images/providers/2.jpg"/>
+      </div>
+      <p>Through our expertise, technological knowledge, global presence and bespoke.</p>
+      <div className="aon-ow-pro-rating">
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star text-gray"></span>
+      </div>
+      </div>
+      </div>
+      <div className="aon-ow-bottom">
+      <Link to="/profile-full"/>Request A Quote
+      </div>
+      </div>
+      </div>
+
+      <div className="col-md-6">
+      <div className="aon-ow-provider-wrap">
+      <div className="aon-ow-provider">
+      <div className="aon-ow-top">
+      <div className="aon-pro-check"><span><i className="fa fa-check"></i></span></div>
+      <div className="aon-pro-favorite"><a href="#"><i className="fa fa-heart-o"></i></a></div>
+      <div className="aon-ow-info">
+      <h4 className="aon-title"><Link to="/profile-full"/>James McAvoy</h4>
+      <span>Queens, United States</span>
+      </div>
+      </div>
+      <div className="aon-ow-mid">
+      <div className="aon-ow-media">
+      <Link to="/profile-full"/><img alt="" src="/images/providers/3.jpg"/>
+      </div>
+      <p>Through our expertise, technological knowledge, global presence and bespoke.</p>
+      <div className="aon-ow-pro-rating">
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star text-gray"></span>
+      </div>
+      </div>
+      </div>
+      <div className="aon-ow-bottom">
+      <Link to="/profile-full"/>Request A Quote
+      </div>
+      </div>
+      </div>
+
+      <div className="col-md-6">
+      <div className="aon-ow-provider-wrap">
+      <div className="aon-ow-provider">
+      <div className="aon-ow-top">
+      <div className="aon-pro-check"><span><i className="fa fa-check"></i></span></div>
+      <div className="aon-pro-favorite"><a href="#"><i className="fa fa-heart-o"></i></a></div>
+      <div className="aon-ow-info">
+      <h4 className="aon-title"><Link to="/profile-full"/>Edward Luise</h4>
+      <span>Queens, United States</span>
+      </div>
+      </div>
+      <div className="aon-ow-mid">
+      <div className="aon-ow-media">
+      <Link to="/profile-full"/><img alt="" src="/images/providers/4.jpg"/>
+      </div>
+      <p>Through our expertise, technological knowledge, global presence and bespoke.</p>
+      <div className="aon-ow-pro-rating">
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star text-gray"></span>
+      </div>
+      </div>
+      </div>
+      <div className="aon-ow-bottom">
+      <Link to="/profile-full"/>Request A Quote
+      </div>
+      </div>
+      </div>
+
+      <div className="col-md-6">
+      <div className="aon-ow-provider-wrap">
+      <div className="aon-ow-provider">
+      <div className="aon-ow-top">
+      <div className="aon-pro-check"><span><i className="fa fa-check"></i></span></div>
+      <div className="aon-pro-favorite"><a href="#"><i className="fa fa-heart-o"></i></a></div>
+      <div className="aon-ow-info">
+      <h4 className="aon-title"><Link to="/profile-full"/>Mila Kunis</h4>
+      <span>Queens, United States</span>
+      </div>
+      </div>
+      <div className="aon-ow-mid">
+      <div className="aon-ow-media">
+      <Link to="/profile-full"/><img alt="" src="/images/providers/5.jpg"/>
+      </div>
+      <p>Through our expertise, technological knowledge, global presence and bespoke.</p>
+      <div className="aon-ow-pro-rating">
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star text-gray"></span>
+      </div>
+      </div>
+      </div>
+      <div className="aon-ow-bottom">
+      <Link to="/profile-full"/>Request A Quote
+      </div>
+      </div>
+      </div>
+
+      <div className="col-md-6">
+      <div className="aon-ow-provider-wrap">
+      <div className="aon-ow-provider">
+      <div className="aon-ow-top">
+      <div className="aon-pro-check"><span><i className="fa fa-check"></i></span></div>
+      <div className="aon-pro-favorite"><a href="#"><i className="fa fa-heart-o"></i></a></div>
+      <div className="aon-ow-info">
+      <h4 className="aon-title"><Link to="/profile-full"/>Javier Bardem</h4>
+      <span>Queens, United States</span>
+      </div>
+      </div>
+      <div className="aon-ow-mid">
+      <div className="aon-ow-media">
+      <Link to="/profile-full"/><img alt="" src="/images/providers/6.jpg"/>
+      </div>
+      <p>Through our expertise, technological knowledge, global presence and bespoke.</p>
+      <div className="aon-ow-pro-rating">
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star"></span>
+      <span className="fa fa-star text-gray"></span>
+      </div>
+      </div>
+      </div>
+      <div className="aon-ow-bottom">
+      <Link to="/profile-full"/>Request A Quote
+      </div>
+      </div>
+      </div>
+
+      <div className="site-pagination s-p-center">
+      <ul className="pagination">
+      <li className="page-item disabled">
+      <a className="page-link" href="#" tabIndex="-1"><i className="fa fa-chevron-left"></i></a>
+      </li>
+      <li className="page-item"><a className="page-link" href="#">1</a></li>
+      <li className="page-item active">
+      <a className="page-link" href="#">2 <span className="sr-only">(current)</span></a>
+      </li>
+      <li className="page-item"><a className="page-link" href="#">3</a></li>
+      <li className="page-item"><a className="page-link" href="#"><i className="fa fa-ellipsis-h"></i></a></li>
+      <li className="page-item"><a className="page-link" href="#">11</a></li>
+      <li className="page-item">
+      <a className="page-link" href="#"><i className="fa fa-chevron-right"></i></a>
+      </li>
+      </ul>
+      </div>
+      </div>
+
+
+      <div className="aon-search-right-map">
+      <div className="aon-search-right-close"><i className="fa fa-close"></i></div>
+      <div className="gmap-area">
+      <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+      </div>
+      </div>
+
+      </div>
+
+      </div>
+       Content END
+
+    </>
+  );
+}
