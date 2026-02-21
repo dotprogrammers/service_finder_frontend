@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import HomeBanner from "../components/home/HomeBanner";
 
 export default function Index() {
   return (
     <>
-
-
-
-      CONTENT START
+      <HomeBanner />
       <div className="page-content">
 
         <section className="aon-banner-wrap">
