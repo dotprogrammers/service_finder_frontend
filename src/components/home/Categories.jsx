@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 import { ReloadOutlined } from "@ant-design/icons";
@@ -39,6 +39,7 @@ function CategoryCard({ href = "#", image, count, title }) {
 
 export default function Categories() {
     const categories = [
+        // Existing
         {
             href: "/kategori/advokat",
             count: 4,
@@ -81,7 +82,59 @@ export default function Categories() {
             image:
                 "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=70",
         },
+
+        // New (Extra)
+        {
+            href: "/kategori/cleaning",
+            count: 12,
+            title: "Rengøring & Vedligeholdelse",
+            image:
+                "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=70",
+        },
+        {
+            href: "/kategori/plumber",
+            count: 7,
+            title: "VVS & Blikkenslager",
+            image:
+                "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=70",
+        },
+        {
+            href: "/kategori/electrician",
+            count: 9,
+            title: "Elektriker",
+            image:
+                "https://images.unsplash.com/photo-1581091870627-3fd36a29cc74?auto=format&fit=crop&w=1200&q=70",
+        },
+        {
+            href: "/kategori/gardening",
+            count: 6,
+            title: "Have & Landskab",
+            image:
+                "https://images.unsplash.com/photo-1598514982084-b38c4c64a6b6?auto=format&fit=crop&w=1200&q=70",
+        },
+        {
+            href: "/kategori/it",
+            count: 5,
+            title: "IT Support & Web",
+            image:
+                "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=70",
+        },
+        {
+            href: "/kategori/photography",
+            count: 3,
+            title: "Foto & Video",
+            image:
+                "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=70",
+        },
     ];
+
+    // Show 8 first
+    const [visibleCount, setVisibleCount] = useState(6);
+
+    // Load more handler (+4)
+    const handleLoadMore = () => {
+        setVisibleCount((prev) => prev + 3);
+    };
 
     return (
         <section className="w-full bg-white py-10">
@@ -93,22 +146,25 @@ export default function Categories() {
 
                 {/* Grid */}
                 <div className="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {categories.map((c) => (
+                    {categories.slice(0, visibleCount).map((c) => (
                         <CategoryCard key={c.title} {...c} />
                     ))}
                 </div>
 
-                {/* AntD Button */}
+                {/* Load More Button */}
+
                 <div className="mt-10 flex justify-center">
                     <Button
                         type="primary"
                         size="large"
                         icon={<ReloadOutlined />}
+                        onClick={handleLoadMore}
                         className="!bg-green-600 hover:!bg-green-700 active:!bg-green-800"
                     >
-                        View more
+                        View More
                     </Button>
                 </div>
+
             </div>
         </section>
     );
