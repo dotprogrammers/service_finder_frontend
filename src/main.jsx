@@ -23,6 +23,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             activeBorderColor: "#6AB33E",
             hoverBorderColor: "#6AB33E",
           },
+          Button: {
+            colorPrimary: "#6AB33E",
+          },
         },
       }}
     >

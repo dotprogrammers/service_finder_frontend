@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import HomeBanner from "../components/home/HomeBanner";
 import StatsBar from "../components/home/StatsBar";
 import Categories from "../components/home/Categories";
+import { Button } from "antd";
 
 export default function Index() {
   return (
@@ -634,7 +635,11 @@ export default function Index() {
                       <div className="sf-price-tb-plan">
                         <div className="sf-price-plan-cost">$<span>29</span>/month</div>
                       </div>
-                      <Link className="sf-choose-plan-btn" to="/contact-us" />Choose Plan
+                      <Link to="/contact-us" >
+                        <Button className="w-full">
+                          Choose Plan
+                        </Button>
+                      </Link>
                     </div>
                   </div>
 
@@ -658,7 +663,11 @@ export default function Index() {
                       <div className="sf-price-tb-plan">
                         <div className="sf-price-plan-cost">$<span>39</span>/month</div>
                       </div>
-                      <Link className="sf-choose-plan-btn" to="/contact-us" />Choose Plan
+                      <Link to="/contact-us" >
+                        <Button className="w-full">
+                          Choose Plan
+                        </Button>
+                      </Link>
                     </div>
                   </div>
 
@@ -682,7 +691,8 @@ export default function Index() {
                       <div className="sf-price-tb-plan">
                         <div className="sf-price-plan-cost">$<span>49</span>/month</div>
                       </div>
-                      <Link className="sf-choose-plan-btn" to="/contact-us" />Try 1 Month
+                      <Link to="/contact-us" ><Button type="primary" className="w-full" size="large">
+                        Try 1 Month</Button></Link>
                     </div>
                   </div>
 
@@ -706,7 +716,11 @@ export default function Index() {
                       <div className="sf-price-tb-plan">
                         <div className="sf-price-plan-cost">$<span>89</span>/month</div>
                       </div>
-                      <Link className="sf-choose-plan-btn" to="/contact-us" />Choose Plan
+                      <Link to="/contact-us" >
+                        <Button className="w-full">
+                          Choose Plan
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -854,10 +868,6 @@ export default function Index() {
         </div>
 
       </div>
-      CONTENT END
-      FOOTER START
-      FOOTER END
-      BUTTON TOP START
       <button className="scroltop"><span className="fa fa-angle-up relative" id="btn-vibrate"></span></button>
 
     </>
