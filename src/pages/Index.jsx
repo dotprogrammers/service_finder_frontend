@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import HomeBanner from "../components/home/HomeBanner";
+import StatsBar from "../components/home/StatsBar";
 
 export default function Index() {
   return (
     <>
       <HomeBanner />
+      <StatsBar />
       <div className="page-content">
 
         <section className="aon-banner-wrap">
