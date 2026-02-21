@@ -2,12 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import HomeBanner from "../components/home/HomeBanner";
 import StatsBar from "../components/home/StatsBar";
+import Categories from "../components/home/Categories";
 
 export default function Index() {
   return (
     <>
       <HomeBanner />
       <StatsBar />
+      <Categories />
       <div className="page-content">
 
         <section className="aon-banner-wrap">
