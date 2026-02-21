@@ -36,7 +36,7 @@ export default function HomeBanner() {
                 style={{
                     backgroundImage:
                         "url('https://dsy1.crateweb.cloud/assets/uploads/media-uploader/dsy-banner-11706063230.png')",
-                    backgroundPosition: "center",
+                    backgroundPosition: "top",
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                 }}
