@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import LoadingArea from "./LoadingArea";
+// import LoadingArea from "./LoadingArea";
 import { Outlet } from "react-router-dom";
 
 export default function Layout() {
@@ -11,7 +11,7 @@ export default function Layout() {
 
   return (
     <>
-      <LoadingArea />
+      {/* <LoadingArea /> */}
       <div className="page-wraper">
         <Header />
         <Outlet />
