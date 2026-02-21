@@ -78,7 +78,13 @@ export default function Footer() {
         <div className="footer-bottom">
           <div className="container">
             <div className="sf-footer-bottom-section">
-              <div className="sf-f-logo"><a href="javascript:void(0);"><img alt="" src="/images/logo-dark.png" /></a></div>
+              <a href="https://dsy1.crateweb.cloud" className="flex items-center gap-2">
+                <img
+                  src="https://dsy1.crateweb.cloud/assets/uploads/media-uploader/logo-111705509884.png"
+                  alt="DSY"
+                  className="h-8 w-auto lg:h-10"
+                />
+              </a>
               <div className="sf-f-copyright">
                 <span>Copyright 2022 | Aone Theme. All Rights Reserved</span>
               </div>
