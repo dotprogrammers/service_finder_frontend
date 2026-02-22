@@ -82,7 +82,7 @@ function ProviderCard({ provider, isFavorite, onToggleFavorite }) {
                 "border border-slate-100",
                 "shadow-[0_8px_30px_rgba(15,23,42,0.06)]",
                 "px-6 py-6",
-                "transition hover:border hover:border-green-400",
+                "transition hover:border-2 hover:!border-green-400",
             ].join(" ")}
         >
             {/* Favorite */}

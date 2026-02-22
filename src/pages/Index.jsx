@@ -8,6 +8,7 @@ import CompanyMap from "../components/home/CompanyMap";
 import MostVisitedCompanies from "../components/home/MostVisitedCompanies";
 import HowItWorksSteps from "../components/home/HowItWorksSteps";
 import FeaturedProviders from "../components/home/FeaturedProviders";
+import WhyChooseSection from "../components/home/WhyChooseSection";
 
 export default function Index() {
   return (
@@ -19,6 +20,7 @@ export default function Index() {
       <MostVisitedCompanies />
       <HowItWorksSteps />
       <FeaturedProviders />
+      <WhyChooseSection />
       <div className="page-content">
         {/* <section className="bg-white aon-how-service-area sf-curve-pos">
           <div className="container">
