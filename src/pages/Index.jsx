@@ -10,6 +10,7 @@ import HowItWorksSteps from "../components/home/HowItWorksSteps";
 import FeaturedProviders from "../components/home/FeaturedProviders";
 import WhyChooseSection from "../components/home/WhyChooseSection";
 import LatestNewsSection from "../components/home/LatestNewsSection";
+import NewsletterSubscribeSection from "../components/home/NewsletterSubscribeSection";
 
 export default function Index() {
   return (
@@ -23,6 +24,7 @@ export default function Index() {
       <FeaturedProviders />
       <WhyChooseSection />
       <LatestNewsSection />
+      <NewsletterSubscribeSection />
       <div className="page-content">
         {/* <section className="bg-white aon-how-service-area sf-curve-pos">
           <div className="container">

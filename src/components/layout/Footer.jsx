@@ -1,3 +1,4 @@
+import { Button, Input } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -8,12 +9,31 @@ export default function Footer() {
 
         <div className="footer-top-newsletter">
           <div className="container">
-            <div className="sf-news-letter">
-              <span>Subscribe Our Newsletter</span>
+            <div className="border !border-[#022278] !rounded-lg p-6 flex justify-between items-center flex-wrap gap-6">
+              <span className="text-2xl text-[#022278]">Subscribe Our Newsletter</span>
               <form>
-                <div className="form-group sf-news-l-form">
-                  <input className="form-control" placeholder="Enter Your Email" type="text" />
-                  <button className="sf-sb-btn" type="submit">Submit</button>
+                <div className="flex justify-center">
+                  <div className="flex max-w-[600px] w-full">
+                    <Input
+                      size="large"
+                      placeholder="Enter Your Email Address"
+                      // value={email}
+                      // onChange={(e) => setEmail(e.target.value)}
+                      className="!rounded-tr-[0px] !rounded-br-[0px]"
+
+                    />
+
+                    <Button
+                      type="primary"
+                      size="large"
+                      // loading={loading}
+                      // onClick={handleSubscribe}
+                      className="!rounded-tl-[0px] !rounded-bl-[0px]"
+
+                    >
+                      Subscribe
+                    </Button>
+                  </div>
                 </div>
               </form>
             </div>
