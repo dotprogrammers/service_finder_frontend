@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+// import React from "react";
+// import { Link } from "react-router-dom";
 import HomeBanner from "../components/home/HomeBanner";
 import StatsBar from "../components/home/StatsBar";
 import Categories from "../components/home/Categories";
-import { Button } from "antd";
+// import { Button } from "antd";
 import CompanyMap from "../components/home/CompanyMap";
 import MostVisitedCompanies from "../components/home/MostVisitedCompanies";
 import HowItWorksSteps from "../components/home/HowItWorksSteps";
