@@ -6,6 +6,7 @@ import Categories from "../components/home/Categories";
 import { Button } from "antd";
 import CompanyMap from "../components/home/CompanyMap";
 import MostVisitedCompanies from "../components/home/MostVisitedCompanies";
+import HowItWorksSteps from "../components/home/HowItWorksSteps";
 
 export default function Index() {
   return (
@@ -15,6 +16,7 @@ export default function Index() {
       <Categories />
       <CompanyMap />
       <MostVisitedCompanies />
+      <HowItWorksSteps />
       <div className="page-content">
         <section className="bg-white aon-how-service-area sf-curve-pos">
           <div className="container">
