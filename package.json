@@ -12,11 +12,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-leaflet/core": "^2.1.0",
     "@tailwindcss/vite": "^4.2.0",
     "antd": "^6.3.0",
+    "leaflet": "^1.9.4",
     "react": "^18.3.1",
     "react-countdown": "^2.3.6",
     "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.26.2",
     "tailwindcss": "^4.2.0"
   },

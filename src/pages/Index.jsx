@@ -4,6 +4,7 @@ import HomeBanner from "../components/home/HomeBanner";
 import StatsBar from "../components/home/StatsBar";
 import Categories from "../components/home/Categories";
 import { Button } from "antd";
+import CompanyMap from "../components/home/CompanyMap";
 
 export default function Index() {
   return (
@@ -11,6 +12,7 @@ export default function Index() {
       <HomeBanner />
       <StatsBar />
       <Categories />
+      <CompanyMap />
       <div className="page-content">
         <section className="bg-white aon-how-service-area sf-curve-pos">
           <div className="container">
