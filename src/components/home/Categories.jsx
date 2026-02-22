@@ -18,7 +18,7 @@ function CategoryCard({ href = "#", image, count, title }) {
             />
 
             {/* Dark Overlay */}
-            <div className="absolute inset-0 hover:bg-black/35" />
+            <div className="absolute inset-0 bg-black/20 hover:bg-black/35 h-full" />
 
             {/* Count Badge */}
             <div className="absolute left-4 top-4 z-10">
@@ -28,7 +28,7 @@ function CategoryCard({ href = "#", image, count, title }) {
             </div>
 
             {/* Title */}
-            <div className="absolute bottom-0 left-0 right-0 z-10 px-5 pb-4">
+            <div className="absolute bottom-0 left-0 right-0 z-10 !px-5">
                 <p className="text-base font-medium leading-snug text-white drop-shadow">
                     {title}
                 </p>
