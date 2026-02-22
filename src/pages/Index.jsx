@@ -9,6 +9,7 @@ import MostVisitedCompanies from "../components/home/MostVisitedCompanies";
 import HowItWorksSteps from "../components/home/HowItWorksSteps";
 import FeaturedProviders from "../components/home/FeaturedProviders";
 import WhyChooseSection from "../components/home/WhyChooseSection";
+import LatestNewsSection from "../components/home/LatestNewsSection";
 
 export default function Index() {
   return (
@@ -21,6 +22,7 @@ export default function Index() {
       <HowItWorksSteps />
       <FeaturedProviders />
       <WhyChooseSection />
+      <LatestNewsSection />
       <div className="page-content">
         {/* <section className="bg-white aon-how-service-area sf-curve-pos">
           <div className="container">
@@ -239,7 +241,7 @@ export default function Index() {
         </section> */}
 
 
-        <div className="site-bg-primary aon-statics-area sf-curve-pos">
+        {/* <div className="site-bg-primary aon-statics-area sf-curve-pos">
           <div className="container">
             <div className="section-content">
               <div className="row d-flex flex-wrap align-items-center a-b-none">
@@ -293,10 +295,10 @@ export default function Index() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
 
-        <div className="aon-news-section-wrap sf-curve-pos">
+        {/* <div className="aon-news-section-wrap sf-curve-pos">
           <div className="container">
 
             <div className="section-head">
@@ -382,10 +384,10 @@ export default function Index() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
 
-        <div className="aon-whycoose-area sf-curve-pos">
+        {/* <div className="aon-whycoose-area sf-curve-pos">
           <div className="container-fluid">
             <div className="sf-whycoose-section">
               <div className="row sf-w-choose-bg-outer d-flex flex-wrap a-b-none">
@@ -448,10 +450,10 @@ export default function Index() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
 
-        <div className="aon-recent-post-area sf-curve-pos">
+        {/* <div className="aon-recent-post-area sf-curve-pos">
           <div className="container">
 
             <div className="section-head">
@@ -593,10 +595,10 @@ export default function Index() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
 
-        <div className="aon-pricing-area sf-curve-pos">
+        {/* <div className="aon-pricing-area sf-curve-pos">
           <div className="container">
 
             <div className="section-head">
@@ -737,10 +739,10 @@ export default function Index() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
 
-        <div className="aon-testmonials-area sf-curve-pos">
+        {/* <div className="aon-testmonials-area sf-curve-pos">
           <div className="container">
 
             <div className="section-head">
@@ -875,7 +877,7 @@ export default function Index() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
       </div>
       <button className="scroltop"><span className="fa fa-angle-up relative" id="btn-vibrate"></span></button>

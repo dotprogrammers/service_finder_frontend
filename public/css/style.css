@@ -5065,7 +5065,7 @@ select {
   content: '';
   position: absolute;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   background: #012178;
   border-radius: 30px;
   z-index: -1;
