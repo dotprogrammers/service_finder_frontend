@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import Header from "./Header";
 import Footer from "./Footer";
 // import LoadingArea from "./LoadingArea";
 import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar";
 
 export default function Layout() {
   useEffect(() => {
@@ -11,9 +11,8 @@ export default function Layout() {
 
   return (
     <>
-      {/* <LoadingArea /> */}
       <div className="page-wraper">
-        <Header />
+        <Navbar />
         <Outlet />
         <Footer />
       </div>

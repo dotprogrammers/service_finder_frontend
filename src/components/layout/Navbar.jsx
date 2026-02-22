@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Dropdown, Drawer } from "antd";
 import "antd/dist/reset.css";
 
-export default function NavbarAntd() {
+export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [linksOpen, setLinksOpen] = useState(false);

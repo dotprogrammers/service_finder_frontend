@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "../components/layout/Layout";
 import AllCategories from "../pages/AllCategories";
 import BlogDetail from "../pages/BlogDetail";
 import BlogGrid2 from "../pages/BlogGrid2";
@@ -37,17 +36,16 @@ import SearchListMap from "../pages/SearchListMap";
 import SearchListMap2 from "../pages/SearchListMap2";
 import SearchList from "../pages/SearchList";
 import AboutUs from "../pages/AboutUs";
+import Layout from "../components/layout/Layout";
 
 function NotFound() {
     return (
-        <Layout>
-            <div className="section-full p-t80 p-b80">
-                <div className="container">
-                    <h2>404, Page not found</h2>
-                    <p>The page you are looking for does not exist.</p>
-                </div>
+        <div className="section-full p-t80 p-b80">
+            <div className="container">
+                <h2>404, Page not found</h2>
+                <p>The page you are looking for does not exist.</p>
             </div>
-        </Layout>
+        </div>
     );
 }
 
