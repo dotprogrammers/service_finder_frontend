@@ -5,6 +5,7 @@ import StatsBar from "../components/home/StatsBar";
 import Categories from "../components/home/Categories";
 import { Button } from "antd";
 import CompanyMap from "../components/home/CompanyMap";
+import MostVisitedCompanies from "../components/home/MostVisitedCompanies";
 
 export default function Index() {
   return (
@@ -13,6 +14,7 @@ export default function Index() {
       <StatsBar />
       <Categories />
       <CompanyMap />
+      <MostVisitedCompanies />
       <div className="page-content">
         <section className="bg-white aon-how-service-area sf-curve-pos">
           <div className="container">
