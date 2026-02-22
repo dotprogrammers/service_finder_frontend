@@ -55,36 +55,32 @@ export default function HomeBanner() {
                     <p className="mt-6 max-w-3xl text-center text-base text-white/90 sm:text-lg">
                         Opret en opgave og få tilbud, eller tilmeld din virksomhed og få mere at lave.
                     </p>
-
-                    {/* Search row like image */}
                     <form
                         action="service-list"
                         method="get"
                         className="mt-10 w-full max-w-5xl"
                     >
-                        {/* Outer pill */}
-                        <div className="flex w-full flex-col overflow-hidden rounded-[999px] bg-white shadow-[0_12px_35px_rgba(0,0,0,0.18)] sm:flex-row">
+                        {/* Outer container */}
+                        <div className="flex w-full flex-col overflow-hidden rounded-3xl bg-white shadow-[0_12px_35px_rgba(0,0,0,0.18)] sm:flex-row sm:rounded-[999px]">
+
                             {/* Search input */}
-                            <div className="flex flex-1 items-center">
-                                <div className="flex h-16 w-full items-center">
-                                    <span className="pl-6 pr-2 text-slate-400">
+                            <div className="flex flex-1 items-center border-b border-slate-200 sm:border-b-0">
+                                <div className="flex h-14 w-full items-center sm:h-16">
+                                    <span className="pl-5 pr-2 text-slate-400">
                                         <SearchOutlined />
                                     </span>
 
                                     <Input
                                         name="q"
-                                        placeholder="Search for a task and get quotes, c"
+                                        placeholder="Search for a task and get quotes"
                                         bordered={false}
-                                        className="!h-16 !rounded-none !text-[15px]"
+                                        className="!h-14 sm:!h-16 !rounded-none !text-[15px]"
                                     />
                                 </div>
-
-                                {/* Vertical divider */}
-                                <div className="hidden h-10 w-px bg-slate-200 sm:block" />
                             </div>
 
                             {/* Category dropdown */}
-                            <div className="flex items-center justify-between sm:w-[320px]">
+                            <div className="flex items-center border-b border-slate-200 sm:border-b-0 sm:w-[260px]">
                                 <Dropdown
                                     menu={categoryMenu}
                                     trigger={["click"]}
@@ -92,32 +88,28 @@ export default function HomeBanner() {
                                 >
                                     <button
                                         type="button"
-                                        className="flex h-16 w-full items-center justify-between px-6 text-left text-[15px] text-slate-700"
+                                        className="flex h-14 w-full items-center justify-between px-5 text-left text-[15px] text-slate-700 sm:h-16"
                                     >
-                                        <span className={`${category ? "text-slate-900" : "text-slate-600"}`}>
+                                        <span className={category ? "text-slate-900" : "text-slate-600"}>
                                             {category ? category.label : "Choose a category"}
                                         </span>
                                         <DownOutlined className="text-slate-400" />
                                     </button>
                                 </Dropdown>
-
-                                {/* Vertical divider */}
-                                <div className="hidden h-10 w-px bg-slate-200 sm:block" />
                             </div>
 
-                            {/* Button */}
-                            <div className="sm:w-[280px]">
+                            {/* Submit button */}
+                            <div className="w-full sm:w-[220px]">
                                 <Button
                                     htmlType="submit"
                                     type="primary"
-                                    className="!h-16 !w-full !rounded-none !border-0  !text-[15px] !font-semibold "
+                                    className="!h-14 sm:!h-16 !w-full !rounded-none sm:!rounded-r-[999px] !border-0 !text-[15px] !font-semibold"
                                 >
                                     Search for quotes
                                 </Button>
                             </div>
                         </div>
 
-                        {/* Hidden field so you can submit selected category */}
                         <input type="hidden" name="category" value={category?.key || ""} />
                     </form>
                 </div>
