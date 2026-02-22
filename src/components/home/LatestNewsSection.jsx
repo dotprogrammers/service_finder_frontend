@@ -43,7 +43,7 @@ function BlogCard({ post }) {
     const category = useMemo(() => (post.category || "").toUpperCase(), [post.category]);
 
     return (
-        <div className="media-bg-animate ">
+        <div className="media-bg-animate">
             <Link
                 to={post.slug || "/blog-detail"}
                 className={classNames(
@@ -52,7 +52,7 @@ function BlogCard({ post }) {
                     "shadow-[0_14px_40px_rgba(15,23,42,0.10)]",
                     "border border-slate-100",
                     "overflow-hidden",
-                    "transition hover:shadow-[0_18px_50px_rgba(15,23,42,0.14)] !border-b-3 !border-b-[#0B2A6B]"
+                    "transition hover:shadow-[0_18px_50px_rgba(15,23,42,0.14)] !border-b-3 !border-b-[#0B2A6B] media-bg-animate"
                 )}
             >
                 {/* Image */}
