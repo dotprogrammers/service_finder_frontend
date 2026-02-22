@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Dropdown, Drawer } from "antd";
 import "antd/dist/reset.css";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -29,23 +30,23 @@ export default function Navbar() {
       {
         key: "online-services",
         label: (
-          <a
-            href="https://dsy1.crateweb.cloud/online-services"
+          <Link
+            to="/online-services"
             className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
           >
             Online Services
-          </a>
+          </Link>
         ),
       },
       {
         key: "opgaver",
         label: (
-          <a
-            href="https://dsy1.crateweb.cloud/opgaver"
+          <Link
+            to="/opgaver"
             className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
           >
             Opgaver
-          </a>
+          </Link>
         ),
       },
     ],
@@ -57,89 +58,89 @@ export default function Navbar() {
       {
         key: "win-win",
         label: (
-          <a
-            href="https://dsy1.crateweb.cloud/en-win-win-for-b-de-kunde-og-virksomhed"
+          <Link
+            to="/"
             className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
           >
             En win win for både Kunde &amp; Virksomhed
-          </a>
+          </Link>
         ),
       },
       {
         key: "vision",
         label: (
-          <a
-            href="https://dsy1.crateweb.cloud/vores-vision"
+          <Link
+            to="/vores-vision"
             className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
           >
             Vores vision
-          </a>
+          </Link>
         ),
       },
       {
         key: "blog",
         label: (
-          <a
-            href="https://dsy1.crateweb.cloud/blog"
+          <Link
+            to="/blog"
             className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
           >
             Artikler
-          </a>
+          </Link>
         ),
       },
       {
         key: "faq",
         label: (
-          <a
-            href="https://dsy1.crateweb.cloud/faq"
+          <Link
+            to="/faq"
             className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
           >
             Faq
-          </a>
+          </Link>
         ),
       },
       {
         key: "privacy",
         label: (
-          <a
-            href="https://dsy1.crateweb.cloud/privatlivspolitik---cookiebrug"
+          <Link
+            to="/privacy"
             className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
           >
             Privatlivspolitik, Cookiebrug
-          </a>
+          </Link>
         ),
       },
       {
         key: "terms",
         label: (
-          <a
-            href="https://dsy1.crateweb.cloud/regler-og-vilk-r"
+          <Link
+            to="/terms"
             className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
           >
             Regler og vilkår
-          </a>
+          </Link>
         ),
       },
       {
         key: "law",
         label: (
-          <a
-            href="https://dsy1.crateweb.cloud/lovhjemmel"
+          <Link
+            to="/law"
             className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
           >
             Lovhjemmel
-          </a>
+          </Link>
         ),
       },
       {
         key: "objection",
         label: (
-          <a
-            href="https://dsy1.crateweb.cloud/ret-til-indsigelse"
+          <Link
+            to="/objection"
             className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
           >
             Ret til indsigelse
-          </a>
+          </Link>
         ),
       },
     ],
@@ -151,23 +152,23 @@ export default function Navbar() {
       {
         key: "signup",
         label: (
-          <a
-            href="https://dsy1.crateweb.cloud/register"
+          <Link
+            to="/signup"
             className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
           >
             Sign Up
-          </a>
+          </Link>
         ),
       },
       {
         key: "signin",
         label: (
-          <a
-            href="https://dsy1.crateweb.cloud/login"
+          <Link
+            to="/signin"
             className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
           >
             Sign In
-          </a>
+          </Link>
         ),
       },
     ],
@@ -211,36 +212,36 @@ export default function Navbar() {
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-6">
         {/* Logo */}
-        <a href="https://dsy1.crateweb.cloud" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <img
             src="https://dsy1.crateweb.cloud/assets/uploads/media-uploader/logo-111705509884.png"
             alt="DSY"
             className="h-8 w-auto lg:h-10"
           />
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-8 lg:flex">
-          <a
-            href="https://dsy1.crateweb.cloud"
+          <Link
+            to="/"
             className="text-sm font-medium text-slate-700 hover:text-slate-900"
           >
             Forside
-          </a>
+          </Link>
 
-          <a
-            href="https://danskeserviceydelser.dk/register"
+          <Link
+            to="/tilmeld-virksomhed"
             className="text-sm font-medium text-slate-700 hover:text-slate-900"
           >
             Tilmeld virksomhed
-          </a>
+          </Link>
 
-          <a
-            href="https://dsy1.crateweb.cloud/om-os"
+          <Link
+            to="/om-os"
             className="text-sm font-medium text-slate-700 hover:text-slate-900"
           >
             Om os
-          </a>
+          </Link>
 
           {/* Services dropdown */}
           <Dropdown
@@ -310,12 +311,12 @@ export default function Navbar() {
             </button>
           </Dropdown>
 
-          <a
-            href="https://dsy1.crateweb.cloud/contact"
+          <Link
+            to="/kontakt-os"
             className="text-sm font-medium text-slate-700 hover:text-slate-900"
           >
             Kontakt os
-          </a>
+          </Link>
         </div>
 
         {/* Right side */}
@@ -393,34 +394,34 @@ export default function Navbar() {
         placement="right"
         width={320}
         title={
-          <a href="https://dsy1.crateweb.cloud" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <img
               src="https://dsy1.crateweb.cloud/assets/uploads/media-uploader/logo-111705509884.png"
               alt="DSY"
               className="h-8 w-auto"
             />
-          </a>
+          </Link>
         }
       >
         <div className="flex flex-col gap-1">
-          <a
-            href="https://dsy1.crateweb.cloud"
+          <Link
+            to="/forside"
             className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
           >
             Forside
-          </a>
-          <a
-            href="https://danskeserviceydelser.dk/register"
+          </Link>
+          <Link
+            to="/tilmeld-virksomhed"
             className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
           >
             Tilmeld virksomhed
-          </a>
-          <a
-            href="https://dsy1.crateweb.cloud/om-os"
+          </Link>
+          <Link
+            to="/om-os"
             className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
           >
             Om os
-          </a>
+          </Link>
 
           {/* Mobile Services */}
           <Dropdown
@@ -490,12 +491,12 @@ export default function Navbar() {
             </button>
           </Dropdown>
 
-          <a
-            href="https://dsy1.crateweb.cloud/contact"
+          <Link
+            to="/kontakt-os"
             className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
           >
             Kontakt os
-          </a>
+          </Link>
 
           {/* Mobile Account */}
           <div className="mt-2 border-t border-slate-200 pt-2">
