@@ -7,6 +7,7 @@ import { Button } from "antd";
 import CompanyMap from "../components/home/CompanyMap";
 import MostVisitedCompanies from "../components/home/MostVisitedCompanies";
 import HowItWorksSteps from "../components/home/HowItWorksSteps";
+import FeaturedProviders from "../components/home/FeaturedProviders";
 
 export default function Index() {
   return (
@@ -17,8 +18,9 @@ export default function Index() {
       <CompanyMap />
       <MostVisitedCompanies />
       <HowItWorksSteps />
+      <FeaturedProviders />
       <div className="page-content">
-        <section className="bg-white aon-how-service-area sf-curve-pos">
+        {/* <section className="bg-white aon-how-service-area sf-curve-pos">
           <div className="container">
             <div className="section-content">
               <div className="row">
@@ -81,10 +83,10 @@ export default function Index() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
 
-        <section className="site-bg-gray aon-feature-provider-area sf-curve-pos">
+        {/* <section className="site-bg-gray aon-feature-provider-area sf-curve-pos">
           <div className="container">
 
             <div className="section-head">
@@ -232,7 +234,7 @@ export default function Index() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
 
         <div className="site-bg-primary aon-statics-area sf-curve-pos">
