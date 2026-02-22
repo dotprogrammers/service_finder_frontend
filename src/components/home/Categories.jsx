@@ -7,7 +7,7 @@ function CategoryCard({ href = "#", image, count, title }) {
     return (
         <Link
             to={href}
-            className="group relative block h-[185px] w-full overflow-hidden bg-slate-200 shadow-sm"
+            className="group relative block h-[220px] w-full overflow-hidden bg-slate-200 shadow-sm"
         >
             {/* Background Image */}
             <img
@@ -18,7 +18,7 @@ function CategoryCard({ href = "#", image, count, title }) {
             />
 
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black/20" />
+            <div className="absolute inset-0 hover:bg-black/35" />
 
             {/* Count Badge */}
             <div className="absolute left-4 top-4 z-10">
