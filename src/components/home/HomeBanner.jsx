@@ -42,7 +42,7 @@ export default function HomeBanner() {
                 }}
             >
                 {/* Dark overlay */}
-                <div className="absolute inset-0 bg-black/45" />
+                <div className="absolute inset-0 bg-black/35" />
 
                 {/* Content */}
                 <div className="relative mx-auto flex min-h-[380px] max-w-7xl flex-col items-center justify-center px-4 py-16 lg:min-h-[520px] lg:px-6">
