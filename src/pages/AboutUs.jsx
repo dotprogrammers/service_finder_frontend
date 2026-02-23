@@ -367,10 +367,6 @@ export default function AboutUs() {
         </div>
 
       </div>
-      Content END
-      FOOTER START
-      FOOTER END
-      BUTTON TOP START
       <button className="scroltop"><span className="fa fa-angle-up relative" id="btn-vibrate"></span></button>
 
     </>
