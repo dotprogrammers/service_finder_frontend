@@ -223,7 +223,7 @@ const Search = () => {
               Showing 1 – 12 of 12 results
             </p>
 
-            <div className="flex-col flex md:flex-row text-center max-w-[150px] md:max-w-full mx-auto items-center gap-3">
+            <div className="flex-col flex md:flex-row text-center   items-center gap-3">
               <div className="border px-4 py-2 rounded-lg text-sm">SORT BY</div>
               <div className="border px-4 py-2 rounded-lg text-sm">DESC</div>
               <div className="border px-4 py-2 rounded-lg text-sm">12</div>
