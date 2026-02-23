@@ -39,6 +39,60 @@ const Search = () => {
       city: "København NV",
       desc: "Test handyman",
     },
+    {
+      id: 3,
+      name: "Test Freelancer",
+      city: "København NV",
+      desc: "Professional Service Provider",
+    },
+    {
+      id: 3,
+      name: "Test Company",
+      city: "København NV",
+      desc: "Professional Service Provider",
+    },
+    {
+      id: 3,
+      name: "Test Company Without cvr",
+      city: "København NV",
+      desc: "Professional Service Provider",
+    },
+    {
+      id: 3,
+      name: "Test Company Without cvr",
+      city: "København NV",
+      desc: "Professional Service Provider",
+    },
+    {
+      id: 3,
+      name: "Test Company Without CVR",
+      city: "København NV",
+      desc: "Professional Service Provider",
+    },
+    {
+      id: 3,
+      name: "Testing",
+      city: "København NV",
+      desc: "Professional Service Provider",
+    },
+    {
+      id: 3,
+      name: "Handsf",
+      city: "København NV",
+      desc: "Professional Service Provider",
+    },
+    {
+      id: 3,
+      name: "Test Freelancer/Handyman",
+      city: "København NV",
+      desc: "Professional Service Provider",
+    },
+    {
+      id: 3,
+      name: "dfsgfdsg",
+      city: "København NV",
+      desc: "Professional Service Provider",
+    },
   ];
 
   return (
@@ -46,7 +100,7 @@ const Search = () => {
       <div className=" flex gap-6 ">
         {/* ================= LEFT SIDEBAR ================= */}
         <div
-          className="max-w-[300px] bg-[#f8f9fa] p-5
+          className="max-w-[300px] bg-[#f8f9fa] px-5 pt-5 pb-8
              h-screen
              overflow-x-auto
              overflow-y-auto
@@ -194,7 +248,7 @@ const Search = () => {
           </div>
           <hr />
           {/* CARDS GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-4 pb-8">
             {listings.map((item) => (
               <div
                 key={item.id}
@@ -246,6 +300,12 @@ const Search = () => {
                   </span>
                   <span className="text-gray-500 text-xs">(0)</span>
                 </div>
+                <Button
+                  type="primary"
+                  className=" text-white px-5 mt-4 py-2 w-full rounded-lg font-medium"
+                >
+                  View Profile
+                </Button>
               </div>
             ))}
           </div>
