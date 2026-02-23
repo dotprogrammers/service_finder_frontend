@@ -47,8 +47,8 @@ export const NAV = {
       id: "find-services",
       name: "Find Services",
       items: [
-        { id: "search-services", name: "Search services", link: "/search-services" },
-        { id: "browse-companies", name: "Browse companies", link: "/browse-companies" },
+        { id: "search-services", name: "Search services", link: "/search" },
+        { id: "browse-companies", name: "Browse companies", link: "/companies" },
         { id: "find-freelancers", name: "Find freelancers", link: "/find-freelancers" },
       ],
     },
