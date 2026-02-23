@@ -37,71 +37,74 @@ import SearchListMap2 from "../pages/SearchListMap2";
 import SearchList from "../pages/SearchList";
 import AboutUs from "../pages/AboutUs";
 import Layout from "../components/layout/Layout";
+import Search from "../pages/Search";
 
 function NotFound() {
-    return (
-        <div className="section-full p-t80 p-b80">
-            <div className="container">
-                <h2>404, Page not found</h2>
-                <p>The page you are looking for does not exist.</p>
-            </div>
-        </div>
-    );
+  return (
+    <div className="section-full p-t80 p-b80">
+      <div className="container">
+        <h2>404, Page not found</h2>
+        <p>The page you are looking for does not exist.</p>
+      </div>
+    </div>
+  );
 }
 
 export const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Layout />,
-        children: [
-            { index: true, element: <Index /> },
-            { path: "index-2", element: <Index2 /> },
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Index /> },
+      { path: "index-2", element: <Index2 /> },
 
-            { path: "about-us", element: <AboutUs /> },
-            { path: "all-categories", element: <AllCategories /> },
+      { path: "search", element: <Search /> },
 
-            { path: "blog-detail", element: <BlogDetail /> },
-            { path: "blog-grid", element: <BlogGrid /> },
-            { path: "blog-grid-2", element: <BlogGrid2 /> },
+      { path: "about-us", element: <AboutUs /> },
+      { path: "all-categories", element: <AllCategories /> },
 
-            { path: "blog-list", element: <BlogList /> },
-            { path: "blog-list-2", element: <BlogList2 /> },
-            { path: "blog-list-3", element: <BlogList3 /> },
-            { path: "blog-list-4", element: <BlogList4 /> },
+      { path: "blog-detail", element: <BlogDetail /> },
+      { path: "blog-grid", element: <BlogGrid /> },
+      { path: "blog-grid-2", element: <BlogGrid2 /> },
 
-            { path: "categories-detail", element: <CategoriesDetail /> },
-            { path: "categories-detail-2", element: <CategoriesDetail2 /> },
+      { path: "blog-list", element: <BlogList /> },
+      { path: "blog-list-2", element: <BlogList2 /> },
+      { path: "blog-list-3", element: <BlogList3 /> },
+      { path: "blog-list-4", element: <BlogList4 /> },
 
-            { path: "contact-us", element: <ContactUs /> },
+      { path: "categories-detail", element: <CategoriesDetail /> },
+      { path: "categories-detail-2", element: <CategoriesDetail2 /> },
 
-            { path: "job-detail", element: <JobDetail /> },
-            { path: "job-grid", element: <JobGrid /> },
-            { path: "job-listing", element: <JobListing /> },
+      { path: "contact-us", element: <ContactUs /> },
 
-            { path: "mc-availability", element: <McAvailability /> },
-            { path: "mc-business-hours", element: <McBusinessHours /> },
-            { path: "mc-dashboard", element: <McDashboard /> },
-            { path: "mc-featured-member", element: <McFeaturedMember /> },
-            { path: "mc-messanger", element: <McMessanger /> },
-            { path: "mc-my-booking", element: <McMyBooking /> },
-            { path: "mc-my-services", element: <McMyServices /> },
-            { path: "mc-profile", element: <McProfile /> },
-            { path: "mc-team-members", element: <McTeamMembers /> },
-            { path: "mc-upgrade-account", element: <McUpgradeAccount /> },
-            { path: "mc-upload-identity", element: <McUploadIdentity /> },
+      { path: "job-detail", element: <JobDetail /> },
+      { path: "job-grid", element: <JobGrid /> },
+      { path: "job-listing", element: <JobListing /> },
 
-            { path: "new-search-list-2", element: <NewSearchList2 /> },
-            { path: "profile-full", element: <ProfileFull /> },
-            { path: "profile-sidebar", element: <ProfileSidebar /> },
+      { path: "mc-availability", element: <McAvailability /> },
+      { path: "mc-business-hours", element: <McBusinessHours /> },
+      { path: "mc-dashboard", element: <McDashboard /> },
+      { path: "mc-featured-member", element: <McFeaturedMember /> },
+      { path: "mc-messanger", element: <McMessanger /> },
+      { path: "mc-my-booking", element: <McMyBooking /> },
+      { path: "mc-my-services", element: <McMyServices /> },
+      { path: "mc-profile", element: <McProfile /> },
+      { path: "mc-team-members", element: <McTeamMembers /> },
+      { path: "mc-upgrade-account", element: <McUpgradeAccount /> },
+      { path: "mc-upload-identity", element: <McUploadIdentity /> },
 
-            { path: "search-grid-map2", element: <SearchGridMap2 /> },
-            { path: "search-grid", element: <SearchGrid /> },
-            { path: "search-grids-map", element: <SearchGridsMap /> },
-            { path: "search-list-map", element: <SearchListMap /> },
-            { path: "search-list-map2", element: <SearchListMap2 /> },
-            { path: "search-list", element: <SearchList /> },
+      { path: "new-search-list-2", element: <NewSearchList2 /> },
+      { path: "profile-full", element: <ProfileFull /> },
+      { path: "profile-sidebar", element: <ProfileSidebar /> },
 
-            { path: "*", element: <NotFound /> },
-        ],
-    },
+      { path: "search-grid-map2", element: <SearchGridMap2 /> },
+      { path: "search-grid", element: <SearchGrid /> },
+      { path: "search-grids-map", element: <SearchGridsMap /> },
+      { path: "search-list-map", element: <SearchListMap /> },
+      { path: "search-list-map2", element: <SearchListMap2 /> },
+      { path: "search-list", element: <SearchList /> },
+
+      { path: "*", element: <NotFound /> },
+    ],
+  },
 ]);
