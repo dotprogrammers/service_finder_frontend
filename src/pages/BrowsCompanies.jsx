@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { Button } from "antd";
 
-const BrowsServices = () => {
+const BrowsCompanies = () => {
   const listings = [
     {
       id: 1,
@@ -389,4 +389,4 @@ const BrowsServices = () => {
   );
 };
 
-export default BrowsServices;
+export default BrowsCompanies;

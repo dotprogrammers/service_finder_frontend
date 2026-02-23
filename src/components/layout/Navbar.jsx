@@ -238,7 +238,7 @@ export default function Navbar() {
             to="/companies"
             className="text-sm font-medium text-slate-700 hover:text-slate-900"
           >
-            Browse Service
+            Browse Companies
           </Link>
 
           <Link
