@@ -296,7 +296,7 @@ const BrowsCompanies = () => {
               Showing 1 – 7 of 7 companies
             </p>
 
-            <div className="flex-col flex md:flex-row text-center max-w-[150px] md:max-w-full mx-auto items-center gap-3">
+            <div className="flex-col flex md:flex-row text-center   items-center gap-3">
               <div className="border px-4 py-2 rounded-lg text-sm">
                 Most Popular
               </div>
