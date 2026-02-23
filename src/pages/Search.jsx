@@ -97,14 +97,14 @@ const Search = () => {
 
   return (
     <div className=" w-full ">
-      <div className=" flex gap-6 ">
+      <div className=" md:flex gap-6 ">
         {/* ================= LEFT SIDEBAR ================= */}
         <div
-          className="max-w-[300px] bg-[#f8f9fa] px-5 pt-5 pb-8
+          className="w-full md:max-w-[300px]  bg-[#f8f9fa] px-5 pt-5 pb-8
              h-screen
              overflow-x-auto
              overflow-y-auto
-             sticky top-0 border-slate-800/[.08] border-r"
+             md:sticky md:top-0 border-slate-800/[.08] border-r"
         >
           <h2 className="!text-sm font-semibold text-slate-800 mb-3">
             Search Filters
@@ -206,37 +206,36 @@ const Search = () => {
               </label>
             </div>
           </div>
+
+          <div className="flex  items-center justify-center gap-2 bg-[#6AB33E]  mt-4 py-2 w-full rounded-lg">
+            <SearchIcon className="text-white" size={16} />
+            <button className=" text-white  font-medium gap-2">
+              View Profile
+            </button>
+          </div>
         </div>
 
         {/* ================= RIGHT CONTENT ================= */}
-        <div className="pr-5 ">
+        <div className="md:pr-5 ">
           {/* TOP BAR */}
-          <div className="flex items-center justify-between mt-[45px] mb-2 ">
-            <p className="text-sm text-gray-600">
+          <div className="md:flex items-center justify-between mt-[45px] mb-2 ">
+            <p className="text-sm text-gray-600 text-center">
               Showing 1 – 12 of 12 results
             </p>
 
-            <div className="flex items-center gap-3">
-              <button className="border px-4 py-2 rounded-lg text-sm">
-                SORT BY
-              </button>
-              <button className="border px-4 py-2 rounded-lg text-sm">
-                DESC
-              </button>
-              <button className="border px-4 py-2 rounded-lg text-sm">
-                12
-              </button>
+            <div className="flex-col flex md:flex-row text-center max-w-[150px] md:max-w-full mx-auto items-center gap-3">
+              <div className="border px-4 py-2 rounded-lg text-sm">SORT BY</div>
+              <div className="border px-4 py-2 rounded-lg text-sm">DESC</div>
+              <div className="border px-4 py-2 rounded-lg text-sm">12</div>
 
-              <button className="flex gap-2 p-2 border rounded-lg hover:!bg-blue-700  hover:!text-white">
-                <Grid2X2 size={18} className="" />{" "}
-              </button>
-              <button className="flex gap-2 p-2 border rounded-lg hover:!bg-blue-700 hover:!text-white">
-                <List size={18} className="" />
-              </button>
-
-              {/* <button className="p-2 border rounded-lg">
-                <List size={18} />
-              </button> */}
+              <div className="my-4 md:my-0">
+                <button className=" p-2 border rounded-lg hover:!bg-blue-700  hover:!text-white">
+                  <Grid2X2 size={18} className="" />{" "}
+                </button>
+                <button className=" p-2 border rounded-lg hover:!bg-blue-700 hover:!text-white">
+                  <List size={18} className="" />
+                </button>
+              </div>
 
               <Button
                 type="primary"
