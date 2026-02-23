@@ -1,181 +1,61 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Dropdown, Drawer } from "antd";
 import "antd/dist/reset.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { NAV } from "../../config/nav.config";
+
+const cx = (...classes) => classes.filter(Boolean).join(" ");
+
+function splitLink(link) {
+  const [path, query] = link.split("?");
+  return { path, query: query || "" };
+}
+
+function isActiveLink(location, link) {
+  const { path, query } = splitLink(link);
+  if (location.pathname !== path) return false;
+  if (!query) return true;
+
+  const linkParams = new URLSearchParams(query);
+  const currentParams = new URLSearchParams(location.search);
+
+  for (const [k, v] of linkParams.entries()) {
+    if (currentParams.get(k) !== v) return false;
+  }
+  return true;
+}
+
+function MenuLink({ to, children, onClick, active }) {
+  return (
+    <Link
+      to={to}
+      onClick={onClick}
+      className={cx(
+        "block px-4 py-3 text-sm hover:bg-slate-50",
+        active ? "text-slate-900 font-semibold" : "text-slate-700"
+      )}
+    >
+      {children}
+    </Link>
+  );
+}
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [linksOpen, setLinksOpen] = useState(false);
-  const [accountOpen, setAccountOpen] = useState(false);
-
+  const [openDropdown, setOpenDropdown] = useState(null);
   const navRef = useRef(null);
+  const location = useLocation();
 
   // Close dropdowns when clicking outside the navbar
   useEffect(() => {
     function onClickOutside(e) {
       if (!navRef.current) return;
-      if (!navRef.current.contains(e.target)) {
-        setServicesOpen(false);
-        setLinksOpen(false);
-        setAccountOpen(false);
-      }
+      if (!navRef.current.contains(e.target)) setOpenDropdown(null);
     }
     document.addEventListener("mousedown", onClickOutside);
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, []);
 
-  const servicesItems = useMemo(
-    () => [
-      {
-        key: "online-services",
-        label: (
-          <Link
-            to="/online-services"
-            className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
-          >
-            Online Services
-          </Link>
-        ),
-      },
-      {
-        key: "opgaver",
-        label: (
-          <Link
-            to="/opgaver"
-            className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
-          >
-            Opgaver
-          </Link>
-        ),
-      },
-    ],
-    [],
-  );
-
-  const linksItems = useMemo(
-    () => [
-      {
-        key: "win-win",
-        label: (
-          <Link
-            to="/"
-            className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
-          >
-            En win win for både Kunde &amp; Virksomhed
-          </Link>
-        ),
-      },
-      {
-        key: "vision",
-        label: (
-          <Link
-            to="/vores-vision"
-            className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
-          >
-            Vores vision
-          </Link>
-        ),
-      },
-      {
-        key: "blog",
-        label: (
-          <Link
-            to="/blog"
-            className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
-          >
-            Artikler
-          </Link>
-        ),
-      },
-      {
-        key: "faq",
-        label: (
-          <Link
-            to="/faq"
-            className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
-          >
-            Faq
-          </Link>
-        ),
-      },
-      {
-        key: "privacy",
-        label: (
-          <Link
-            to="/privacy"
-            className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
-          >
-            Privatlivspolitik, Cookiebrug
-          </Link>
-        ),
-      },
-      {
-        key: "terms",
-        label: (
-          <Link
-            to="/terms"
-            className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
-          >
-            Regler og vilkår
-          </Link>
-        ),
-      },
-      {
-        key: "law",
-        label: (
-          <Link
-            to="/law"
-            className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
-          >
-            Lovhjemmel
-          </Link>
-        ),
-      },
-      {
-        key: "objection",
-        label: (
-          <Link
-            to="/objection"
-            className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
-          >
-            Ret til indsigelse
-          </Link>
-        ),
-      },
-    ],
-    [],
-  );
-
-  const accountItems = useMemo(
-    () => [
-      {
-        key: "signup",
-        label: (
-          <Link
-            to="/signup"
-            className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
-          >
-            Sign Up
-          </Link>
-        ),
-      },
-      {
-        key: "signin",
-        label: (
-          <Link
-            to="/signin"
-            className="block px-4 py-3 text-sm text-slate-700 hover:bg-slate-50"
-          >
-            Sign In
-          </Link>
-        ),
-      },
-    ],
-    [],
-  );
-
-  // Shared dropdown props so Tailwind styles stay the same
   const dropdownCommon = {
     placement: "bottomLeft",
     trigger: ["click"],
@@ -187,15 +67,35 @@ export default function Navbar() {
     ),
   };
 
-  const closeAllDropdowns = () => {
-    setServicesOpen(false);
-    setLinksOpen(false);
-    setAccountOpen(false);
+  const closeAll = () => {
+    setOpenDropdown(null);
+    setMobileOpen(false);
   };
+
+  // Build antd menu items from config
+  const antdMenuItemsById = useMemo(() => {
+    const map = {};
+    for (const group of NAV.dropdowns) {
+      map[group.id] = group.items.map((item) => ({
+        key: item.id,
+        label: (
+          <MenuLink
+            to={item.link}
+            onClick={() => setOpenDropdown(null)}
+            active={isActiveLink(location, item.link)}
+          >
+            {item.name}
+          </MenuLink>
+        ),
+      }));
+    }
+    return map;
+  }, [location.pathname, location.search]);
+
+  const accountGroup = NAV.dropdowns.find((g) => g.id === "account");
 
   return (
     <nav ref={navRef} className="w-full border-b border-slate-200 bg-white">
-      {/* Small CSS patch for antd menu spacing, keeps your Tailwind look */}
       <style>{`
         .antd-navbar-dropdown .ant-dropdown-menu {
           border-radius: 0;
@@ -212,158 +112,96 @@ export default function Navbar() {
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-6">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <img
-            src="https://dsy1.crateweb.cloud/assets/uploads/media-uploader/logo-111705509884.png"
-            alt="DSY"
-            className="h-8 w-auto lg:h-10"
-          />
+        <Link to={NAV.logo.link} className="flex items-center gap-2" onClick={closeAll}>
+          <img src={NAV.logo.src} alt={NAV.logo.alt} className="h-8 w-auto lg:h-10" />
         </Link>
 
-        {/* Desktop nav */}
         <div className="hidden items-center gap-8 lg:flex">
-          <Link
-            to="/"
-            className="text-sm font-medium text-slate-700 hover:text-slate-900"
-          >
-            Forside
-          </Link>
-          <Link
-            to="/search"
-            className="text-sm font-medium text-slate-700 hover:text-slate-900"
-          >
-            Search
-          </Link>
-
-          <Link
-            to="/tilmeld-virksomhed"
-            className="text-sm font-medium text-slate-700 hover:text-slate-900"
-          >
-            Tilmeld virksomhed
-          </Link>
-
-          <Link
-            to="/om-os"
-            className="text-sm font-medium text-slate-700 hover:text-slate-900"
-          >
-            Om os
-          </Link>
-
-          {/* Services dropdown */}
-          <Dropdown
-            {...dropdownCommon}
-            menu={{ items: servicesItems }}
-            open={servicesOpen}
-            onOpenChange={(open) => {
-              setServicesOpen(open);
-              if (open) {
-                setLinksOpen(false);
-                setAccountOpen(false);
-              }
-            }}
-          >
-            <button
-              type="button"
-              className="inline-flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-slate-900"
-              aria-expanded={servicesOpen}
-            >
-              Services
-              <svg
-                className={`h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
+          {NAV.main
+            .filter((x) => x.id !== "contact")
+            .map((item) => (
+              <Link
+                key={item.id}
+                to={item.link}
+                className={cx(
+                  "text-sm font-medium hover:text-slate-900",
+                  isActiveLink(location, item.link) ? "text-slate-900" : "text-slate-700"
+                )}
               >
-                <path
-                  fillRule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-          </Dropdown>
+                {item.name}
+              </Link>
+            ))}
 
-          {/* Links dropdown */}
-          <Dropdown
-            {...dropdownCommon}
-            menu={{ items: linksItems }}
-            open={linksOpen}
-            onOpenChange={(open) => {
-              setLinksOpen(open);
-              if (open) {
-                setServicesOpen(false);
-                setAccountOpen(false);
-              }
-            }}
-          >
-            <button
-              type="button"
-              className="inline-flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-slate-900"
-              aria-expanded={linksOpen}
-            >
-              Links
-              <svg
-                className={`h-4 w-4 transition-transform ${linksOpen ? "rotate-180" : ""}`}
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
+          {NAV.dropdowns
+            .filter((g) => g.id !== "account")
+            .map((group) => (
+              <Dropdown
+                key={group.id}
+                {...dropdownCommon}
+                menu={{ items: antdMenuItemsById[group.id] }}
+                open={openDropdown === group.id}
+                onOpenChange={(open) => setOpenDropdown(open ? group.id : null)}
               >
-                <path
-                  fillRule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-          </Dropdown>
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-slate-900"
+                  aria-expanded={openDropdown === group.id}
+                >
+                  {group.name}
+                  <svg
+                    className={cx("h-4 w-4 transition-transform", openDropdown === group.id ? "rotate-180" : "")}
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </Dropdown>
+            ))}
 
-          <Link
-            to="/kontakt-os"
-            className="text-sm font-medium text-slate-700 hover:text-slate-900"
-          >
-            Kontakt os
-          </Link>
+          {/* contact at end */}
+          {NAV.main
+            .filter((x) => x.id === "contact")
+            .map((item) => (
+              <Link
+                key={item.id}
+                to={item.link}
+                className={cx(
+                  "text-sm font-medium hover:text-slate-900",
+                  isActiveLink(location, item.link) ? "text-slate-900" : "text-slate-700"
+                )}
+              >
+                {item.name}
+              </Link>
+            ))}
         </div>
 
-        {/* Right side */}
+        {/* Desktop account */}
         <div className="hidden items-center gap-3 lg:flex">
           <Dropdown
             placement="bottomRight"
             trigger={["click"]}
             overlayClassName="antd-navbar-dropdown"
             dropdownRender={(menu) => (
-              <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
-                {menu}
-              </div>
+              <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">{menu}</div>
             )}
-            menu={{ items: accountItems }}
-            open={accountOpen}
-            onOpenChange={(open) => {
-              setAccountOpen(open);
-              if (open) {
-                setServicesOpen(false);
-                setLinksOpen(false);
-              }
-            }}
+            menu={{ items: antdMenuItemsById.account }}
+            open={openDropdown === "account"}
+            onOpenChange={(open) => setOpenDropdown(open ? "account" : null)}
           >
             <button
               type="button"
               className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-              aria-expanded={accountOpen}
+              aria-expanded={openDropdown === "account"}
             >
-              <span>Account</span>
-              <svg
-                className="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M20 21a8 8 0 10-16 0"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
+              <span>{accountGroup?.name || "Account"}</span>
+              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 21a8 8 0 10-16 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 <path
                   d="M12 12a4 4 0 100-8 4 4 0 000 8z"
                   stroke="currentColor"
@@ -383,18 +221,8 @@ export default function Navbar() {
             className="inline-flex items-center justify-center rounded-lg border border-slate-200 p-2 text-slate-700"
             aria-label="Open menu"
           >
-            <svg
-              className="h-6 w-6"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M4 6h16M4 12h16M4 18h16"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
+            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </button>
         </div>
@@ -405,114 +233,78 @@ export default function Navbar() {
         open={mobileOpen}
         onClose={() => {
           setMobileOpen(false);
-          closeAllDropdowns();
+          setOpenDropdown(null);
         }}
         placement="right"
         width={320}
         title={
-          <Link to="/" className="flex items-center gap-2">
-            <img
-              src="https://dsy1.crateweb.cloud/assets/uploads/media-uploader/logo-111705509884.png"
-              alt="DSY"
-              className="h-8 w-auto"
-            />
+          <Link to={NAV.logo.link} className="flex items-center gap-2" onClick={closeAll}>
+            <img src={NAV.logo.src} alt={NAV.logo.alt} className="h-8 w-auto" />
           </Link>
         }
       >
         <div className="flex flex-col gap-1">
-          <Link
-            to="/forside"
-            className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-          >
-            Forside
-          </Link>
-          <Link
-            to="/tilmeld-virksomhed"
-            className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-          >
-            Tilmeld virksomhed
-          </Link>
-          <Link
-            to="/om-os"
-            className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-          >
-            Om os
-          </Link>
-
-          {/* Mobile Services */}
-          <Dropdown
-            {...dropdownCommon}
-            menu={{ items: servicesItems }}
-            open={servicesOpen}
-            onOpenChange={(open) => {
-              setServicesOpen(open);
-              if (open) {
-                setLinksOpen(false);
-                setAccountOpen(false);
-              }
-            }}
-          >
-            <button
-              type="button"
-              className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-medium text-slate-700 hover:bg-slate-50"
-              aria-expanded={servicesOpen}
+          {/* Main links */}
+          {NAV.main.map((item) => (
+            <Link
+              key={item.id}
+              to={item.link}
+              onClick={closeAll}
+              className={cx(
+                "rounded-lg px-3 py-2 text-sm font-medium hover:bg-slate-50",
+                isActiveLink(location, item.link) ? "text-slate-900" : "text-slate-700"
+              )}
             >
-              <span>Services</span>
-              <svg
-                className={`h-4 w-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-          </Dropdown>
+              {item.name}
+            </Link>
+          ))}
 
-          {/* Mobile Links */}
-          <Dropdown
-            {...dropdownCommon}
-            menu={{ items: linksItems }}
-            open={linksOpen}
-            onOpenChange={(open) => {
-              setLinksOpen(open);
-              if (open) {
-                setServicesOpen(false);
-                setAccountOpen(false);
-              }
-            }}
-          >
-            <button
-              type="button"
-              className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-medium text-slate-700 hover:bg-slate-50"
-              aria-expanded={linksOpen}
-            >
-              <span>Links</span>
-              <svg
-                className={`h-4 w-4 transition-transform ${linksOpen ? "rotate-180" : ""}`}
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
+          {/* Mobile dropdowns (services, links) */}
+          {NAV.dropdowns
+            .filter((g) => g.id !== "account")
+            .map((group) => (
+              <Dropdown
+                key={group.id}
+                {...dropdownCommon}
+                menu={{
+                  items: group.items.map((item) => ({
+                    key: item.id,
+                    label: (
+                      <MenuLink
+                        to={item.link}
+                        onClick={closeAll}
+                        active={isActiveLink(location, item.link)}
+                      >
+                        {item.name}
+                      </MenuLink>
+                    ),
+                  })),
+                }}
+                open={openDropdown === group.id}
+                onOpenChange={(open) => setOpenDropdown(open ? group.id : null)}
               >
-                <path
-                  fillRule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-          </Dropdown>
-
-          <Link
-            to="/kontakt-os"
-            className="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-          >
-            Kontakt os
-          </Link>
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-medium text-slate-700 hover:bg-slate-50"
+                  aria-expanded={openDropdown === group.id}
+                >
+                  <span>{group.name}</span>
+                  <svg
+                    className={cx("h-4 w-4 transition-transform", openDropdown === group.id ? "rotate-180" : "")}
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.23 7.21a.75.75" // keep your original path if you want, I shortened here
+                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </Dropdown>
+            ))}
 
           {/* Mobile Account */}
           <div className="mt-2 border-t border-slate-200 pt-2">
@@ -521,38 +313,29 @@ export default function Navbar() {
               trigger={["click"]}
               overlayClassName="antd-navbar-dropdown"
               dropdownRender={(menu) => (
-                <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
-                  {menu}
-                </div>
+                <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">{menu}</div>
               )}
-              menu={{ items: accountItems }}
-              open={accountOpen}
-              onOpenChange={(open) => {
-                setAccountOpen(open);
-                if (open) {
-                  setServicesOpen(false);
-                  setLinksOpen(false);
-                }
+              menu={{
+                items: accountGroup.items.map((item) => ({
+                  key: item.id,
+                  label: (
+                    <MenuLink to={item.link} onClick={closeAll} active={isActiveLink(location, item.link)}>
+                      {item.name}
+                    </MenuLink>
+                  ),
+                })),
               }}
+              open={openDropdown === "account"}
+              onOpenChange={(open) => setOpenDropdown(open ? "account" : null)}
             >
               <button
                 type="button"
                 className="flex w-full items-center justify-between rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-                aria-expanded={accountOpen}
+                aria-expanded={openDropdown === "account"}
               >
-                <span>Account</span>
-                <svg
-                  className="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M20 21a8 8 0 10-16 0"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
+                <span>{accountGroup.name}</span>
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 21a8 8 0 10-16 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                   <path
                     d="M12 12a4 4 0 100-8 4 4 0 000 8z"
                     stroke="currentColor"
