@@ -40,7 +40,7 @@ export const NAV = {
       name: "Categories",
       items: [
         { id: "all-categories", name: "All categories", link: "/all-categories" },
-        { id: "single-categories", name: "Single categories", link: "/single-categories" },
+        { id: "single-categories", name: "Single categories", link: "/categories-detail" },
       ],
     },
     {
