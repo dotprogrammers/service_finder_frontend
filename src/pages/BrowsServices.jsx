@@ -12,10 +12,12 @@ import {
   WholeWord,
   Earth,
   Star,
+  Building2,
+  CheckCircle,
 } from "lucide-react";
 import { Button } from "antd";
 
-const Search = () => {
+const BrowsServices = () => {
   const listings = [
     {
       id: 1,
@@ -117,7 +119,7 @@ const Search = () => {
 
             <input
               type="text"
-              placeholder="Search..."
+              placeholder="Company name..."
               className="w-full mt-2 border bg-white rounded-lg px-3 py-2 focus:outline-none focus:ring-1 focus:ring-slate-800"
             />
           </div>
@@ -133,7 +135,7 @@ const Search = () => {
 
             <input
               type="text"
-              placeholder="Adress..."
+              placeholder="City or adress"
               className="w-full mt-2 border bg-white rounded-lg px-3 py-2 focus:outline-none focus:ring-1 focus:ring-slate-800"
             />
           </div>
@@ -175,6 +177,40 @@ const Search = () => {
               <option>All Cities</option>
             </select>
           </div>
+          {/* size */}
+          <div className="mb-4">
+            <div className="flex  gap-1 items-start">
+              <Building className="text-slate-800" size={16} />
+              <label className="text-sm text-slate-800 font-medium leading-none ">
+                Company Size
+              </label>
+            </div>
+            <select className="w-full mt-2 bg-white border rounded-lg px-3 py-2">
+              <option>Any Size</option>
+            </select>
+          </div>
+          <div className="mb-4">
+            <div className="flex  gap-1 items-start">
+              <Building className="text-slate-800" size={16} />
+              <label className="text-sm text-slate-800 font-medium leading-none ">
+                Years In Bussiness
+              </label>
+            </div>
+            <select className="w-full mt-2 bg-white border rounded-lg px-3 py-2">
+              <option>Any</option>
+            </select>
+          </div>
+          <div className="mb-4">
+            <div className="flex  gap-1 items-start">
+              <Building className="text-slate-800" size={16} />
+              <label className="text-sm text-slate-800 font-medium leading-none ">
+                Minimum Rating
+              </label>
+            </div>
+            <select className="w-full mt-2 bg-white border rounded-lg px-3 py-2">
+              <option>Any Rating</option>
+            </select>
+          </div>
 
           <div className="mb-4">
             <label className="text-sm  text-slate-800 font-medium leading-none mb-3">
@@ -206,8 +242,49 @@ const Search = () => {
           <div className="flex  items-center justify-center gap-2 bg-[#6AB33E]  mt-4 py-2 w-full rounded-lg">
             <SearchIcon className="text-white" size={16} />
             <button className=" text-white  font-medium gap-2">
-              View Profile
+              Search Companies
             </button>
+          </div>
+          <hr />
+          <div className=" w-[320px]">
+            <h2 className="text-blue-700 font-semibold text-lg mb-4">
+              Statistics
+            </h2>
+
+            <div className="bg-white rounded-2xl shadow-sm p-5 space-y-4">
+              {/* Total Companies */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="bg-blue-100 p-2 rounded-md">
+                    <Building2 className="text-blue-600" size={18} />
+                  </div>
+                  <span className="text-xl font-semibold text-gray-800">7</span>
+                </div>
+                <span className="text-gray-500 text-sm">Total Companies</span>
+              </div>
+
+              <hr />
+
+              {/* Verified */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="text-green-600" size={20} />
+                  <span className="text-xl font-semibold text-gray-800">2</span>
+                </div>
+                <span className="text-gray-500 text-sm">Verified</span>
+              </div>
+
+              <hr />
+
+              {/* Featured */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3">
+                  <Star className="text-yellow-500 fill-yellow-500" size={20} />
+                  <span className="text-xl font-semibold text-gray-800">2</span>
+                </div>
+                <span className="text-gray-500 text-sm">Featured</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -216,11 +293,13 @@ const Search = () => {
           {/* TOP BAR */}
           <div className="md:flex items-center justify-between mt-[45px] mb-2 ">
             <p className="text-sm text-gray-600 text-center">
-              Showing 1 – 12 of 12 results
+              Showing 1 – 7 of 7 companies
             </p>
 
             <div className="flex-col flex md:flex-row text-center max-w-[150px] md:max-w-full mx-auto items-center gap-3">
-              <div className="border px-4 py-2 rounded-lg text-sm">SORT BY</div>
+              <div className="border px-4 py-2 rounded-lg text-sm">
+                Most Popular
+              </div>
               <div className="border px-4 py-2 rounded-lg text-sm">DESC</div>
               <div className="border px-4 py-2 rounded-lg text-sm">12</div>
 
@@ -310,4 +389,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default BrowsServices;
