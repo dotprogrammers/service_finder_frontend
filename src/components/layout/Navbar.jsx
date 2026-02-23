@@ -50,7 +50,7 @@ export default function Navbar() {
         ),
       },
     ],
-    []
+    [],
   );
 
   const linksItems = useMemo(
@@ -144,7 +144,7 @@ export default function Navbar() {
         ),
       },
     ],
-    []
+    [],
   );
 
   const accountItems = useMemo(
@@ -172,7 +172,7 @@ export default function Navbar() {
         ),
       },
     ],
-    []
+    [],
   );
 
   // Shared dropdown props so Tailwind styles stay the same
@@ -227,6 +227,12 @@ export default function Navbar() {
             className="text-sm font-medium text-slate-700 hover:text-slate-900"
           >
             Forside
+          </Link>
+          <Link
+            to="/search"
+            className="text-sm font-medium text-slate-700 hover:text-slate-900"
+          >
+            Search
           </Link>
 
           <Link
@@ -346,7 +352,12 @@ export default function Navbar() {
               aria-expanded={accountOpen}
             >
               <span>Account</span>
-              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <svg
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
                 <path
                   d="M20 21a8 8 0 10-16 0"
                   stroke="currentColor"
@@ -372,7 +383,12 @@ export default function Navbar() {
             className="inline-flex items-center justify-center rounded-lg border border-slate-200 p-2 text-slate-700"
             aria-label="Open menu"
           >
-            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg
+              className="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
               <path
                 d="M4 6h16M4 12h16M4 18h16"
                 stroke="currentColor"
@@ -525,7 +541,12 @@ export default function Navbar() {
                 aria-expanded={accountOpen}
               >
                 <span>Account</span>
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <svg
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
                   <path
                     d="M20 21a8 8 0 10-16 0"
                     stroke="currentColor"
