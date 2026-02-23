@@ -214,7 +214,7 @@ const Search = () => {
         {/* ================= RIGHT CONTENT ================= */}
         <div className="md:pr-5 ">
           {/* TOP BAR */}
-          <div className="md:flex items-center justify-between mt-[45px] mb-2 ">
+          <div className="flex flex-col md:flex-row items-center justify-between mt-[45px] mb-2 ">
             <p className="text-sm text-gray-600 text-center">
               Showing 1 – 12 of 12 results
             </p>
