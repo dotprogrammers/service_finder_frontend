@@ -38,6 +38,7 @@ import SearchList from "../pages/SearchList";
 import AboutUs from "../pages/AboutUs";
 import Layout from "../components/layout/Layout";
 import Search from "../pages/Search";
+import BrowsCompanies from "../pages/BrowsCompanies";
 
 function NotFound() {
   return (
@@ -59,6 +60,7 @@ export const router = createBrowserRouter([
       { path: "index-2", element: <Index2 /> },
 
       { path: "search", element: <Search /> },
+      { path: "companies", element: <BrowsCompanies /> },
 
       { path: "about-us", element: <AboutUs /> },
       { path: "all-categories", element: <AllCategories /> },
