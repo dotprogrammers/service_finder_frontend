@@ -97,14 +97,14 @@ const Search = () => {
 
   return (
     <div className=" w-full ">
-      <div className=" md:flex gap-6 ">
+      <div className="grid  grid-cols-12 gap-6 ">
         {/* ================= LEFT SIDEBAR ================= */}
         <div
-          className="w-full md:max-w-[300px]  bg-[#f8f9fa] px-5 pt-5 pb-8
+          className="col-span-12 lg:col-span-3 w-full  bg-[#f8f9fa] px-5 pt-5 pb-8
              h-screen
              overflow-x-auto
              overflow-y-auto
-             md:sticky md:top-0 border-slate-800/[.08] border-r"
+             lg:sticky lg:top-0 border-slate-800/[.08] border-r"
         >
           <h2 className="!text-sm font-semibold text-slate-800 mb-3">
             Search Filters
@@ -216,14 +216,14 @@ const Search = () => {
         </div>
 
         {/* ================= RIGHT CONTENT ================= */}
-        <div className="md:pr-5 ">
+        <div className="lg:pr-5 col-span-12  lg:col-span-9">
           {/* TOP BAR */}
-          <div className="md:flex items-center justify-between mt-[45px] mb-2 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between mt-[45px] mb-2 ">
             <p className="text-sm text-gray-600 text-center">
               Showing 1 – 12 of 12 results
             </p>
 
-            <div className="flex-col flex md:flex-row text-center max-w-[150px] md:max-w-full mx-auto items-center gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 text-center   items-center gap-3">
               <div className="border px-4 py-2 rounded-lg text-sm">SORT BY</div>
               <div className="border px-4 py-2 rounded-lg text-sm">DESC</div>
               <div className="border px-4 py-2 rounded-lg text-sm">12</div>

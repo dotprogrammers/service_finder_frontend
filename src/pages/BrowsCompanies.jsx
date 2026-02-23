@@ -95,14 +95,14 @@ const BrowsCompanies = () => {
 
   return (
     <div className=" w-full ">
-      <div className=" md:flex gap-6 ">
+      <div className=" grid  grid-cols-12 gap-6 ">
         {/* ================= LEFT SIDEBAR ================= */}
         <div
-          className="w-full md:max-w-[300px]  bg-[#f8f9fa] px-5 pt-5 pb-8
+          className="col-span-12 lg:col-span-3  w-full   bg-[#f8f9fa] px-5 pt-5 pb-8
              h-screen
-             overflow-x-auto
+              overflow-x-auto
              overflow-y-auto
-             md:sticky md:top-0 border-slate-800/[.08] border-r"
+             lg:sticky lg:top-0 border-slate-800/[.08] border-r"
         >
           <h2 className="!text-sm font-semibold text-slate-800 mb-3">
             Search Filters
@@ -246,16 +246,16 @@ const BrowsCompanies = () => {
             </button>
           </div>
           <hr />
-          <div className=" w-[320px]">
+          <div className="w-full xl:max-w-[320px]">
             <h2 className="text-blue-700 font-semibold text-lg mb-4">
               Statistics
             </h2>
 
-            <div className="bg-white rounded-2xl shadow-sm p-5 space-y-4">
+            <div className="bg-white rounded-2xl shadow-sm p-4 space-y-4">
               {/* Total Companies */}
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="bg-blue-100 p-2 rounded-md">
+                  <div className="bg-blue-100 p-2 rounded-lg">
                     <Building2 className="text-blue-600" size={18} />
                   </div>
                   <span className="text-xl font-semibold text-gray-800">7</span>
@@ -289,21 +289,21 @@ const BrowsCompanies = () => {
         </div>
 
         {/* ================= RIGHT CONTENT ================= */}
-        <div className="md:pr-5 ">
+        <div className="lg:pr-5 col-span-12  lg:col-span-9">
           {/* TOP BAR */}
-          <div className="md:flex items-center justify-between mt-[45px] mb-2 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between mt-[45px] mb-2  ">
             <p className="text-sm text-gray-600 text-center">
               Showing 1 – 7 of 7 companies
             </p>
 
-            <div className="flex-col flex md:flex-row text-center max-w-[150px] md:max-w-full mx-auto items-center gap-3">
+            <div className="flex-col flex lg:flex-row text-center   items-center gap-3">
               <div className="border px-4 py-2 rounded-lg text-sm">
                 Most Popular
               </div>
               <div className="border px-4 py-2 rounded-lg text-sm">DESC</div>
               <div className="border px-4 py-2 rounded-lg text-sm">12</div>
 
-              <div className="my-4 md:my-0">
+              <div className="my-4 lg:my-0">
                 <button className=" p-2 border rounded-lg hover:!bg-blue-700  hover:!text-white">
                   <Grid2X2 size={18} className="" />{" "}
                 </button>
@@ -322,11 +322,11 @@ const BrowsCompanies = () => {
           </div>
           <hr />
           {/* CARDS GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-4 pb-8">
+          <div className="rid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-4 pb-8">
             {listings.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-2xl p-5 shadow-xl hover:shadow-md transition relative"
+                className="bg-white rounded-2xl p-5 shadow-xl hover:shadow-lg transition relative"
               >
                 {/* Verified Badge */}
                 <div className="absolute top-4 left-4 bg-[#6AB33E] w-9 h-9 rounded-full flex items-center justify-center shadow">
