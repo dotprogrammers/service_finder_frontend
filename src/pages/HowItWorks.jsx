@@ -10,6 +10,11 @@ import {
   Search,
   LineChart,
   Briefcase,
+  ShieldCheck,
+  DollarSign,
+  Clock,
+  Users,
+  Heart,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 const HowItWorks = () => {
@@ -55,6 +60,39 @@ const HowItWorks = () => {
       icon: <LineChart size={32} className="text-cyan-500" />,
       title: "Grow Business",
       desc: "Complete projects, earn reviews, and grow your reputation. Build a thriving business with DSY.dk.",
+    },
+  ];
+
+  const choose = [
+    {
+      icon: <ShieldCheck size={34} className="text-green-400" />,
+      title: "Verified Providers",
+      desc: "All service providers are verified through our rigorous screening process. Work with professionals you can trust.",
+    },
+    {
+      icon: <DollarSign size={34} className="text-green-400" />,
+      title: "Competitive Prices",
+      desc: "Compare multiple quotes and choose the best price for your budget. No hidden fees or surprises.",
+    },
+    {
+      icon: <Star size={34} className="text-yellow-400" />,
+      title: "Trusted Reviews",
+      desc: "Read genuine reviews from real customers. Make informed decisions based on others' experiences.",
+    },
+    {
+      icon: <Clock size={34} className="text-cyan-400" />,
+      title: "Quick Response",
+      desc: "Get responses from providers quickly. Most projects receive quotes within 24 hours.",
+    },
+    {
+      icon: <Users size={34} className="text-blue-400" />,
+      title: "Large Network",
+      desc: "Access thousands of qualified providers across Denmark in hundreds of service categories.",
+    },
+    {
+      icon: <Heart size={34} className="text-red-400" />,
+      title: "Customer Support",
+      desc: "Our dedicated support team is here to help you every step of the way. Contact us anytime.",
     },
   ];
   return (
@@ -171,6 +209,38 @@ const HowItWorks = () => {
             <Briefcase size={18} />
             Join as Service Provider
           </button>
+        </div>
+      </section>
+      <section className="bg-[#667eea]  py-12 mt-[50px]">
+        <div className="max-w-7xl mx-auto px-6 text-center text-white">
+          <p className="text-xs tracking-[4px] aon-sub-title text-white mb-3">
+            BENEFITS
+          </p>
+
+          <h2 className="text-4xl font-bold aon-title text-white pb-8">
+            Why Choose DSY.dk
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {choose.map((item, i) => (
+              <div
+                key={i}
+                className="bg-[#764ba2] rounded-xl p-8 border border-blue-500/30 hover:bg-[#244a9a] transition duration-300 text-white"
+              >
+                <div className="mb-6 flex justify-center text-white">
+                  {item.icon}
+                </div>
+
+                <h3 className="text-lg font-semibold mb-3 text-white">
+                  {item.title}
+                </h3>
+
+                <p className=" text-sm leading-relaxed text-white">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       ;
