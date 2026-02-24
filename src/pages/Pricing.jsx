@@ -1,3 +1,4 @@
+import { Descriptions } from "antd";
 import { Check, ChevronDown, X } from "lucide-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -8,24 +9,28 @@ const Pricing = () => {
       title: "Free Company profile",
       price: 0,
       button: "Get Started",
+      description: "Free Company profile",
       highlighted: false,
     },
     {
       title: "Company with info",
       price: 75,
       button: "Choose Plan",
+      description: "Company with info",
       highlighted: true,
     },
     {
       title: "Company With Cvr and Bids",
       price: 500,
       button: "Contact Sales",
+      description: "Company With Cvr and Bids",
       highlighted: false,
     },
     {
       title: "Freelancer / Handyman / Altundigand",
       price: 400,
       button: "Choose Plan",
+      description: "Freelancer / Handyman / Altmuligmand",
       highlighted: false,
     },
   ];
@@ -126,20 +131,41 @@ const Pricing = () => {
     hover:-translate-y-3 hover:shadow-2xl
     ${
       plan.highlighted
-        ? "border-2 border-blue-600 scale-105 hover:scale-110"
-        : "border border-gray-200 hover:border-blue-400"
+        ? "border-2 border-[#667eea]  scale-105 hover:scale-110"
+        : "border border-gray-200 hover:border-[#667eea]/[.7] "
     }
   `}
               >
                 {/* Top Section */}
                 <div
-                  className={`p-6 text-center rounded-t-xl 
-                ${plan.highlighted ? "bg-gradient-to-r from-blue-600 to-indigo-500 text-white" : ""}`}
+                  className={`p-4 text-center rounded-t-xl text-[#667eea] 
+                ${plan.highlighted ? "bg-gradient-to-br from-[#667eea] to-[#764ba2] !text-white" : "bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef]"}`}
                 >
-                  <h3 className="text-sm font-semibold mb-4">{plan.title}</h3>
-                  <p className="text-3xl font-bold">
-                    kr {plan.price}
-                    <span className="text-sm font-normal"> /month</span>
+                  <h3 className="text-2xl font-bold mb-4 ">{plan.title}</h3>
+
+                  <div className=" gap-2 flex items-center justify-center">
+                    <div className="relative">
+                      <span
+                        className={`text-gray-600 text-lg font-medium absolute left-[-55%] top-[-30%]   ${plan.highlighted ? " !text-white" : ""}`}
+                      >
+                        kr
+                      </span>
+
+                      <span className="text-6xl font-bold leading-none">
+                        {plan.price}
+                      </span>
+
+                      <span
+                        className={`text-gray-500/[.8] text-lg absolute top-[90%] ${plan.highlighted ? " !text-white" : ""}`}
+                      >
+                        /month
+                      </span>
+                    </div>
+                  </div>
+                  <p
+                    className={`text-gray-600/[.8] text-sm pt-[50px] font-normal ${plan.highlighted ? " !text-white" : ""}`}
+                  >
+                    {plan.description}
                   </p>
                 </div>
 
@@ -148,9 +174,13 @@ const Pricing = () => {
                   {features.map((feature, i) => (
                     <div key={i} className="flex items-center gap-2 text-sm">
                       {i < 9 ? (
-                        <Check size={16} className="text-green-500" />
+                        <Check
+                          size={18}
+                          strokeWidth={3}
+                          className="text-green-500 "
+                        />
                       ) : (
-                        <X size={16} className="text-gray-300" />
+                        <X size={16} className="text-gray-600" />
                       )}
                       <span className="text-gray-600">{feature}</span>
                     </div>
@@ -160,11 +190,11 @@ const Pricing = () => {
                 {/* Button */}
                 <div className="p-6">
                   <button
-                    className={`w-full py-2 rounded-lg text-sm font-medium transition 
+                    className={`w-full py-2 rounded-lg text-sm font-medium transition b
                 ${
                   plan.highlighted
-                    ? "bg-blue-600 text-white hover:bg-blue-700"
-                    : "border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                    ? "bg-[#667eea] text-white hover:bg-blue-700"
+                    : " !text-[#667eea] border-2 border-[#667eea] hover:border-2 hover:border-[#667eea]/[.5] hover:text-white"
                 }`}
                   >
                     {plan.button}
