@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import WhyChooseSection from "../components/home/WhyChooseSection";
 
 export default function AboutUs() {
   return (
@@ -22,64 +23,7 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <section className="aon-why-choose2-area">
-          <div className="container">
-            <div className="aon-why-choose2-box">
-              <div className="row">
-
-                <div className="col-lg-6 col-md-12">
-                  <div className="aon-why-choose-info">
-
-                    <div className="section-head">
-                      <span className="aon-sub-title">Choose</span>
-                      <h2 className="aon-title">Why Choose us</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-
-                    <ul className="aon-why-choose-steps list-unstyled">
-
-                      <li className="d-flex">
-                        <div className="aon-w-choose-left aon-icon-effect">
-                          <div className="aon-w-choose-icon"><i className="aon-icon"><img alt="" src="/images/whychoose/1.png" /></i></div>
-                        </div>
-                        <div className="aon-w-choose-right">
-                          <h4 className="aon-title">Meet new customers</h4>
-                          <p>Suspendisse tincidunt rutrum ante. Vestibulum elementum ipsum sit amet turpis elementum lobortis.</p>
-                        </div>
-                      </li>
-
-                      <li className="d-flex">
-                        <div className="aon-w-choose-left aon-icon-effect">
-                          <div className="aon-w-choose-icon"><i className="aon-icon"><img alt="" src="/images/whychoose/2.png" /></i></div>
-                        </div>
-                        <div className="aon-w-choose-right">
-                          <h4 className="aon-title">Grow your revenue</h4>
-                          <p>Suspendisse tincidunt rutrum ante. Vestibulum elementum ipsum sit amet turpis elementum lobortis.</p>
-                        </div>
-                      </li>
-
-                      <li className="d-flex">
-                        <div className="aon-w-choose-left aon-icon-effect">
-                          <div className="aon-w-choose-icon"><i className="aon-icon"><img alt="" src="/images/whychoose/3.png" /></i></div>
-                        </div>
-                        <div className="aon-w-choose-right">
-                          <h4 className="aon-title">Build your online reputation</h4>
-                          <p>Suspendisse tincidunt rutrum ante. Vestibulum elementum ipsum sit amet turpis elementum lobortis.</p>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="col-lg-6 col-md-12">
-                  <div className="aon-why-choose2-line">
-                    <div className="aon-why-choose2-pic"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <WhyChooseSection />
 
 
         <div className="aon-about-area">
