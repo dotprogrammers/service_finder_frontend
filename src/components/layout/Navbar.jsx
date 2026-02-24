@@ -39,8 +39,16 @@ export const NAV = {
       id: "categories",
       name: "Categories",
       items: [
-        { id: "all-categories", name: "All categories", link: "/all-categories" },
-        { id: "single-categories", name: "Single categories", link: "/categories-detail" },
+        {
+          id: "all-categories",
+          name: "All categories",
+          link: "/all-categories",
+        },
+        {
+          id: "single-categories",
+          name: "Single categories",
+          link: "/categories-detail",
+        },
       ],
     },
     {
@@ -48,8 +56,16 @@ export const NAV = {
       name: "Find Services",
       items: [
         { id: "search-services", name: "Search services", link: "/search" },
-        { id: "browse-companies", name: "Browse companies", link: "/companies" },
-        { id: "find-freelancers", name: "Find freelancers", link: "/find-freelancers" },
+        {
+          id: "browse-companies",
+          name: "Browse companies",
+          link: "/companies",
+        },
+        {
+          id: "find-freelancers",
+          name: "Find freelancers",
+          link: "/freelancers",
+        },
       ],
     },
     {
@@ -110,7 +126,7 @@ export default function Navbar() {
               "block px-4 py-3 text-sm hover:bg-slate-50",
               isActiveLink(location, item.link)
                 ? "text-slate-900 font-semibold"
-                : "text-slate-700"
+                : "text-slate-700",
             )}
           >
             {item.name}
@@ -123,16 +139,18 @@ export default function Navbar() {
 
   const accountGroup = NAV.dropdowns.find((g) => g.id === "account");
 
-  const onDropdownClick = (groupId) => ({ key }) => {
-    const group = NAV.dropdowns.find((g) => g.id === groupId);
-    const found = group?.items.find((x) => x.id === key);
+  const onDropdownClick =
+    (groupId) =>
+    ({ key }) => {
+      const group = NAV.dropdowns.find((g) => g.id === groupId);
+      const found = group?.items.find((x) => x.id === key);
 
-    if (found?.link) {
-      navigate(found.link);
-    }
+      if (found?.link) {
+        navigate(found.link);
+      }
 
-    setOpenDropdown(null);
-  };
+      setOpenDropdown(null);
+    };
 
   return (
     <nav ref={navRef} className="w-full border-b border-slate-200 bg-white">
@@ -151,8 +169,16 @@ export default function Navbar() {
       `}</style>
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-6">
-        <Link to={NAV.logo.link} className="flex items-center gap-2" onClick={closeAll}>
-          <img src={NAV.logo.src} alt={NAV.logo.alt} className="h-8 w-auto lg:h-10" />
+        <Link
+          to={NAV.logo.link}
+          className="flex items-center gap-2"
+          onClick={closeAll}
+        >
+          <img
+            src={NAV.logo.src}
+            alt={NAV.logo.alt}
+            className="h-8 w-auto lg:h-10"
+          />
         </Link>
 
         <div className="hidden items-center gap-8 lg:flex">
@@ -164,7 +190,9 @@ export default function Navbar() {
                 to={item.link}
                 className={cx(
                   "text-sm font-medium hover:text-slate-900",
-                  isActiveLink(location, item.link) ? "text-slate-900" : "text-slate-700"
+                  isActiveLink(location, item.link)
+                    ? "text-slate-900"
+                    : "text-slate-700",
                 )}
               >
                 {item.name}
@@ -193,7 +221,7 @@ export default function Navbar() {
                   <svg
                     className={cx(
                       "h-4 w-4 transition-transform",
-                      openDropdown === group.id ? "rotate-180" : ""
+                      openDropdown === group.id ? "rotate-180" : "",
                     )}
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -217,7 +245,9 @@ export default function Navbar() {
                 to={item.link}
                 className={cx(
                   "text-sm font-medium hover:text-slate-900",
-                  isActiveLink(location, item.link) ? "text-slate-900" : "text-slate-700"
+                  isActiveLink(location, item.link)
+                    ? "text-slate-900"
+                    : "text-slate-700",
                 )}
               >
                 {item.name}
@@ -249,8 +279,18 @@ export default function Navbar() {
               aria-expanded={openDropdown === "account"}
             >
               <span>{accountGroup?.name || "Account"}</span>
-              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M20 21a8 8 0 10-16 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <svg
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20 21a8 8 0 10-16 0"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
                 <path
                   d="M12 12a4 4 0 100-8 4 4 0 000 8z"
                   stroke="currentColor"
@@ -269,8 +309,18 @@ export default function Navbar() {
             className="inline-flex items-center justify-center rounded-lg border border-slate-200 p-2 text-slate-700"
             aria-label="Open menu"
           >
-            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            <svg
+              className="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M4 6h16M4 12h16M4 18h16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
             </svg>
           </button>
         </div>
@@ -282,7 +332,11 @@ export default function Navbar() {
         placement="right"
         width={320}
         title={
-          <Link to={NAV.logo.link} className="flex items-center gap-2" onClick={closeAll}>
+          <Link
+            to={NAV.logo.link}
+            className="flex items-center gap-2"
+            onClick={closeAll}
+          >
             <img src={NAV.logo.src} alt={NAV.logo.alt} className="h-8 w-auto" />
           </Link>
         }
@@ -295,7 +349,9 @@ export default function Navbar() {
               onClick={closeAll}
               className={cx(
                 "rounded-lg px-3 py-2 text-sm font-medium hover:bg-slate-50",
-                isActiveLink(location, item.link) ? "text-slate-900" : "text-slate-700"
+                isActiveLink(location, item.link)
+                  ? "text-slate-900"
+                  : "text-slate-700",
               )}
             >
               {item.name}
@@ -327,7 +383,7 @@ export default function Navbar() {
                   <svg
                     className={cx(
                       "h-4 w-4 transition-transform",
-                      openDropdown === group.id ? "rotate-180" : ""
+                      openDropdown === group.id ? "rotate-180" : "",
                     )}
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -370,8 +426,18 @@ export default function Navbar() {
                 aria-expanded={openDropdown === "account"}
               >
                 <span>{accountGroup?.name || "Account"}</span>
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M20 21a8 8 0 10-16 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <svg
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M20 21a8 8 0 10-16 0"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
                   <path
                     d="M12 12a4 4 0 100-8 4 4 0 000 8z"
                     stroke="currentColor"
