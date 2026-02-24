@@ -138,10 +138,26 @@ const PricingPage = () => {
               >
                 {/* Top Section */}
                 <div
-                  className={`p-4 text-center rounded-t-xl text-[#667eea] 
+                  className={`p-4 text-center rounded-t-xl text-[#667eea] overflow-hidden
                 ${plan.highlighted ? "bg-gradient-to-br from-[#667eea] to-[#764ba2] !text-white" : "bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef]"}`}
                 >
                   <h3 className="text-2xl font-bold mb-4 ">{plan.title}</h3>
+                  {/* bb button */}
+
+                  <div className="relative   ">
+                    {/* bb button */}
+                    {plan.highlighted && (
+                      <button
+                        className="absolute -bottom-0 -right-[28%] 
+    rotate-[48deg] 
+  px-8 py-2 text-xs font-semibold 
+  bg-gradient-to-br from-[#667eea] to-[#764ba2] 
+  text-white shadow-x2l"
+                      >
+                        MOST POPULAR
+                      </button>
+                    )}
+                  </div>
 
                   <div className=" gap-2 flex items-center justify-center">
                     <div className="relative">
@@ -194,7 +210,7 @@ const PricingPage = () => {
                 ${
                   plan.highlighted
                     ? "bg-[#667eea] text-white hover:bg-blue-700"
-                    : " !text-[#667eea] border-2 border-[#667eea] hover:border-2 hover:border-[#667eea]/[.5] hover:text-white"
+                    : " !text-[#667eea] border-2 border-[#667eea] hover:border-2  hover:border-[#667eea]/[.5] hover:text-white"
                 }`}
                   >
                     {plan.button}
