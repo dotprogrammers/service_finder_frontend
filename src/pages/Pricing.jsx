@@ -262,10 +262,10 @@ const Pricing = () => {
           <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-12 px-6">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between text-white">
               <div>
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-bold !text-white">
                   Ready to Grow Your Business?
                 </h3>
-                <p className="text-sm mt-2 opacity-90">
+                <p className="text-sm mt-2 opacity-90 text-white">
                   Join thousands of service providers already growing their
                   business with us.
                 </p>
