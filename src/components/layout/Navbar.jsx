@@ -32,7 +32,7 @@ export const NAV = {
   },
   main: [
     { id: "home", name: "Home", link: "/" },
-    { id: "contact", name: "Contact", link: "/contact" },
+    // { id: "contact", name: "Contact", link: "/contact" },
   ],
   dropdowns: [
     {
@@ -59,7 +59,7 @@ export const NAV = {
         { id: "about-us", name: "About us", link: "/about-us" },
         { id: "how-it-works", name: "How it works", link: "/how-it-works" },
         { id: "pricing", name: "Pricing", link: "/pricing" },
-        { id: "blog", name: "Blog", link: "/blog" },
+        // { id: "blog", name: "Blog", link: "/blog" },
       ],
     },
     {

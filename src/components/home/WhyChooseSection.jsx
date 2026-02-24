@@ -8,9 +8,6 @@ import {
 } from "@ant-design/icons";
 import { Button } from "antd";
 
-/**
- * Dummy JSON, replace later with API data
- */
 const whyChooseData = {
     eyebrow: "CHOOSE",
     title: "Why Choose DSY.dk",
@@ -52,108 +49,65 @@ const whyChooseData = {
     ],
 };
 
-function PointRow({ icon, title, desc }) {
-    return (
-        <div className="flex gap-4">
-            <div className="shrink-0">
-                <div className="h-14 w-14 rounded-2xl bg-white/10 grid place-items-center ring-1 ring-white/10">
-                    <div className="h-10 w-10 rounded-xl bg-white grid place-items-center">
-                        {icon}
-                    </div>
-                </div>
-            </div>
-
-            <div className="min-w-0">
-                <h4 className="text-[15px] font-semibold text-white">{title}</h4>
-                <p className="mt-1 text-[13px] leading-relaxed text-white/80 max-w-[520px]">
-                    {desc}
-                </p>
-            </div>
-        </div>
-    );
-}
 
 export default function WhyChooseSection({
     data = whyChooseData,
     imageUrl,
 }) {
     return (
-        <section className="py-14">
-            <div className="mx-auto max-w-7xl px-4">
-                <div className="rounded-[28px] bg-[#06246B] px-6 py-10 md:px-10 md:py-12">
-                    <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-                        {/* Left */}
-                        <div>
-                            <div className="text-[12px] font-semibold tracking-[0.28em] text-white">
-                                {data.eyebrow}
-                            </div>
+        <section className="aon-why-choose2-area">
+            <div className="container">
+                <div className="aon-why-choose2-box">
+                    <div className="row">
 
-                            <h2 className="mt-3 text-3xl md:text-4xl font-extrabold !text-white">
-                                {data.title}
-                            </h2>
+                        <div className="col-lg-6 col-md-12">
+                            <div className="aon-why-choose-info">
 
-                            <p className="mt-3 text-[13px] md:text-[14px] leading-relaxed text-white/80 max-w-[640px]">
-                                {data.subtitle}
-                            </p>
+                                <div className="section-head">
+                                    <span className="aon-sub-title">Choose</span>
+                                    <h2 className="aon-title">Why Choose us</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                </div>
 
-                            <div className="mt-8 space-y-6">
-                                {data.points.map((p) => (
-                                    <PointRow
-                                        key={p.id}
-                                        icon={p.icon}
-                                        title={p.title}
-                                        desc={p.desc}
-                                    />
-                                ))}
-                            </div>
+                                <ul className="aon-why-choose-steps list-unstyled">
 
-                            <div className="mt-9 flex flex-wrap gap-4">
-                                <Button
-                                    type="primary"
-                                    size="large"
-                                    onClick={data.ctas?.[0]?.onClick}
-                                >
-                                    {data.ctas?.[0]?.label || "Learn More"}
-                                </Button>
+                                    <li className="d-flex">
+                                        <div className="aon-w-choose-left aon-icon-effect">
+                                            <div className="aon-w-choose-icon"><i className="aon-icon"><img alt="" src="/images/whychoose/1.png" /></i></div>
+                                        </div>
+                                        <div className="aon-w-choose-right">
+                                            <h4 className="aon-title">Meet new customers</h4>
+                                            <p>Suspendisse tincidunt rutrum ante. Vestibulum elementum ipsum sit amet turpis elementum lobortis.</p>
+                                        </div>
+                                    </li>
 
-                                <Button
-                                    type="primary"
-                                    size="large"
-                                    onClick={data.ctas?.[1]?.onClick}
+                                    <li className="d-flex">
+                                        <div className="aon-w-choose-left aon-icon-effect">
+                                            <div className="aon-w-choose-icon"><i className="aon-icon"><img alt="" src="/images/whychoose/2.png" /></i></div>
+                                        </div>
+                                        <div className="aon-w-choose-right">
+                                            <h4 className="aon-title">Grow your revenue</h4>
+                                            <p>Suspendisse tincidunt rutrum ante. Vestibulum elementum ipsum sit amet turpis elementum lobortis.</p>
+                                        </div>
+                                    </li>
 
-                                >
-                                    {data.ctas?.[1]?.label || "Get Started"}
-                                </Button>
+                                    <li className="d-flex">
+                                        <div className="aon-w-choose-left aon-icon-effect">
+                                            <div className="aon-w-choose-icon"><i className="aon-icon"><img alt="" src="/images/whychoose/3.png" /></i></div>
+                                        </div>
+                                        <div className="aon-w-choose-right">
+                                            <h4 className="aon-title">Build your online reputation</h4>
+                                            <p>Suspendisse tincidunt rutrum ante. Vestibulum elementum ipsum sit amet turpis elementum lobortis.</p>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
-                        {/* Right */}
-                        <div className="relative">
-                            {/* Accent outline behind image */}
-                            <div className="hidden lg:block absolute right-6 top-1/2 -translate-y-1/2 h-[520px] w-[360px] rounded-[26px] border-2 border-amber-500/95" />
-
-                            {/* Image card */}
-                            <div className="relative mx-auto lg:ml-auto lg:mr-14 w-full max-w-[520px] rounded-[24px] bg-white/10 ring-1 ring-white/10 p-3">
-                                <div className="overflow-hidden rounded-[20px] bg-slate-200">
-                                    {imageUrl ? (
-                                        <img
-                                            src={imageUrl}
-                                            alt="Why choose"
-                                            className="w-full h-[320px] sm:h-[420px] md:h-[480px] object-cover"
-                                            loading="lazy"
-                                        />
-                                    ) : (
-                                        <div className="w-full h-[320px] sm:h-[420px] md:h-[480px] grid place-items-center text-slate-600">
-                                            <div className="text-5xl font-extrabold opacity-70">
-                                                600 x 665
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
+                        <div className="col-lg-6 col-md-12">
+                            <div className="aon-why-choose2-line">
+                                <div className="aon-why-choose2-pic"></div>
                             </div>
-
-                            {/* Optional small corner accent */}
-                            <div className="hidden lg:block absolute right-0 top-10 h-20 w-20 rounded-[18px] border-2 border-amber-500/95" />
                         </div>
                     </div>
                 </div>
