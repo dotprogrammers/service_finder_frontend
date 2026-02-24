@@ -292,18 +292,18 @@ const BrowsCompanies = () => {
         <div className="lg:pr-5 col-span-12  lg:col-span-9">
           {/* TOP BAR */}
           <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between mt-[45px] mb-2  ">
-            <p className="text-sm text-gray-600 text-center">
+            <p className="text-sm text-gray-600 flex justify-center lg:justify-start">
               Showing 1 – 7 of 7 companies
             </p>
 
-            <div className="flex-col flex lg:flex-row text-center   items-center gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 text-center   items-center gap-3">
               <div className="border px-4 py-2 rounded-lg text-sm">
                 Most Popular
               </div>
               <div className="border px-4 py-2 rounded-lg text-sm">DESC</div>
               <div className="border px-4 py-2 rounded-lg text-sm">12</div>
 
-              <div className="my-4 lg:my-0">
+              <div className="my-4 lg:my-0 flex">
                 <button className=" p-2 border rounded-lg hover:!bg-blue-700  hover:!text-white">
                   <Grid2X2 size={18} className="" />{" "}
                 </button>
@@ -322,11 +322,11 @@ const BrowsCompanies = () => {
           </div>
           <hr />
           {/* CARDS GRID */}
-          <div className="rid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-4 pb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-4 pb-8">
             {listings.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-2xl p-5 shadow-xl hover:shadow-lg transition relative"
+                className="bg-white rounded-2xl p-4 shadow-xl hover:shadow-lg transition relative"
               >
                 {/* Verified Badge */}
                 <div className="absolute top-4 left-4 bg-[#6AB33E] w-9 h-9 rounded-full flex items-center justify-center shadow">
