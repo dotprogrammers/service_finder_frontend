@@ -17,6 +17,7 @@ import {
   Heart,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import Faq from "../components/Faq/Faq";
 const HowItWorks = () => {
   const service = [
     {
@@ -243,7 +244,7 @@ const HowItWorks = () => {
           </div>
         </div>
       </section>
-      ;
+      <Faq />;
     </>
   );
 };
