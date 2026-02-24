@@ -3,7 +3,7 @@ import { Check, ChevronDown, X } from "lucide-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Pricing = () => {
+const PricingPage = () => {
   const plans = [
     {
       title: "Free Company profile",
@@ -282,4 +282,4 @@ const Pricing = () => {
   );
 };
 
-export default Pricing;
+export default PricingPage;
