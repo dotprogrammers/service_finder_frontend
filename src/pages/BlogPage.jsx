@@ -1,7 +1,7 @@
 import React from "react";
 import { Search, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import { Button } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const posts = [
   {
@@ -49,6 +49,7 @@ const posts = [
 ];
 
 const BlogPage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="page-content">
@@ -86,6 +87,7 @@ const BlogPage = () => {
               {posts.map((post) => (
                 <div
                   key={post.id}
+                  onClick={() => navigate(`/blog/${post.id}`)}
                   className="bg-white border-b-4 border-t-none border-l-none border-r-none border-b-[#073088] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition"
                 >
                   {/* Image Placeholder */}

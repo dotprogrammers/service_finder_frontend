@@ -74,7 +74,8 @@ export const router = createBrowserRouter([
       { path: "about-us", element: <AboutUs /> },
       { path: "all-categories", element: <AllCategories /> },
 
-      { path: "blog-detail", element: <BlogDetail /> },
+      { path: "/blog/:id", element: <BlogDetail /> },
+      // { path: "blog-detail", element: <BlogDetail /> },
       { path: "blog-grid", element: <BlogGrid /> },
       { path: "blog-grid-2", element: <BlogGrid2 /> },
 
