@@ -69,6 +69,7 @@ export const router = createBrowserRouter([
       { path: "how-it-works", element: <HowItWorks /> },
       { path: "freelancers", element: <FindFreelancers /> },
       { path: "blog", element: <BlogPage /> },
+      // { path: "contact-us", element: <Conta /> },
 
       { path: "about-us", element: <AboutUs /> },
       { path: "all-categories", element: <AllCategories /> },
