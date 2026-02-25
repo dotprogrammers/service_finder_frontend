@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Faq from "../components/Faq/Faq";
+import HowServiceFinderWork from "../components/about/HowServiceFinderWork";
 const HowItWorks = () => {
   const service = [
     {
@@ -124,6 +125,7 @@ const HowItWorks = () => {
           </div>
         </div>
       </div>
+      <HowServiceFinderWork />
       <section className="bg-[#f8f9fa] aon-why-choose2-area">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-xs tracking-[4px] aon-sub-title  mb-3">

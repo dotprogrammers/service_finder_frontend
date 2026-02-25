@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import WhyChooseSection from "../components/home/WhyChooseSection";
+import HowServiceFinderWork from "../components/about/HowServiceFinderWork";
 
 export default function AboutUs() {
   return (
@@ -64,81 +65,7 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <section className="bg-white aon-how-service-area">
-          <div className="container">
-            <div className="section-content">
-              <div className="row">
-                <div className="col-lg-4 col-md-12">
-                  <span className="aon-sub-title">Steps</span>
-                  <h2 className="sf-title">How Service Finder Works</h2>
-                </div>
-
-                <div className="col-lg-8 col-md-12">
-                  <div className="aon-step-blocks">
-                    <div className="row">
-                      <div className="col-md-4 col-sm-4 m-b30">
-                        <div className="aon-step-section step-position-1 aon-icon-effect">
-                          <div className="aon-step-icon aon-icon-box">
-                            <span>
-                              <i className="aon-icon">
-                                <img alt="" src="/images/step-icon/1.png" />
-                              </i>
-                            </span>
-                          </div>
-                          <div className="aon-step-info">
-                            <h4 className="aon-title">Describe Your Task</h4>
-                            <p>
-                              This helps us determine which Taskers are abest
-                              job.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="col-md-4 col-sm-4 m-b30">
-                        <div className="aon-step-section step-position-2 aon-icon-effect">
-                          <div className="aon-step-icon">
-                            <span>
-                              <i className="aon-icon">
-                                <img alt="" src="/images/step-icon/2.png" />
-                              </i>
-                            </span>
-                          </div>
-                          <div className="aon-step-info">
-                            <h4 className="aon-title">Choose a Tasker</h4>
-                            <p>
-                              This helps us determine which Taskers are abest
-                              job.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="col-md-4 col-sm-4 m-b30">
-                        <div className="aon-step-section step-position-3 aon-icon-effect">
-                          <div className="aon-step-icon">
-                            <span>
-                              <i className="aon-icon">
-                                <img alt="" src="/images/step-icon/3.png" />
-                              </i>
-                            </span>
-                          </div>
-                          <div className="aon-step-info">
-                            <h4 className="aon-title">Live Smarter</h4>
-                            <p>
-                              This helps us determine which Taskers are abest
-                              job.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <HowServiceFinderWork />
 
         <div className="site-bg-primary aon-statics-area">
           <div className="container">
