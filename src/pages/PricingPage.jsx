@@ -103,11 +103,10 @@ const PricingPage = () => {
                 key={index}
                 className={`rounded-xl shadow-md bg-white flex flex-col justify-between transition-all duration-500 ease-out
     hover:-translate-y-3 hover:shadow-2xl
-    ${
-      plan.highlighted
-        ? "border-2 border-[#667eea]  scale-105 hover:scale-110"
-        : "border border-gray-200 hover:border-[#667eea]/[.7] "
-    }
+    ${plan.highlighted
+                    ? "border-2 border-[#667eea]  scale-105 hover:scale-110"
+                    : "border border-gray-200 hover:border-[#667eea]/[.7] "
+                  }
   `}
               >
                 {/* Top Section */}
@@ -181,11 +180,10 @@ const PricingPage = () => {
                 <div className="p-6">
                   <button
                     className={`w-full py-2 rounded-lg text-sm font-medium transition b
-                ${
-                  plan.highlighted
-                    ? "bg-[#667eea] text-white hover:bg-blue-700"
-                    : " !text-[#667eea] border-2 border-[#667eea] hover:border-2  hover:border-[#667eea]/[.5] hover:text-white"
-                }`}
+                ${plan.highlighted
+                        ? "bg-[#667eea] text-white hover:bg-blue-700"
+                        : " !text-[#667eea] border-2 border-[#667eea] hover:border-2  hover:border-[#667eea]/[.5] hover:text-white"
+                      }`}
                   >
                     {plan.button}
                   </button>
