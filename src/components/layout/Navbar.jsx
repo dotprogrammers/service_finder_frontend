@@ -32,7 +32,7 @@ export const NAV = {
   },
   main: [
     { id: "home", name: "Home", link: "/" },
-    { id: "contactus", name: "Contact", link: "/contact-us" },
+    { id: "contact", name: "Contact", link: "/contact-us" },
   ],
   dropdowns: [
     {
@@ -141,16 +141,16 @@ export default function Navbar() {
 
   const onDropdownClick =
     (groupId) =>
-    ({ key }) => {
-      const group = NAV.dropdowns.find((g) => g.id === groupId);
-      const found = group?.items.find((x) => x.id === key);
+      ({ key }) => {
+        const group = NAV.dropdowns.find((g) => g.id === groupId);
+        const found = group?.items.find((x) => x.id === key);
 
-      if (found?.link) {
-        navigate(found.link);
-      }
+        if (found?.link) {
+          navigate(found.link);
+        }
 
-      setOpenDropdown(null);
-    };
+        setOpenDropdown(null);
+      };
 
   return (
     <nav ref={navRef} className="w-full border-b border-slate-200 bg-white">
