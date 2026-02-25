@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import {
   Heart,
   Check,
@@ -19,18 +19,48 @@ import {
 import { Button } from "antd";
 
 const FindFreelancers = () => {
+  const [sortBy, setSortBy] = useState("popular");
+  //   const [order, setOrder] = useState("desc");
+  const [perPage, setPerPage] = useState(12);
   const freelancers = [
     {
       id: 1,
-      name: "Testing",
+      name: "testing",
       location: "sdfdsf",
+      rating: 4.5,
+      createdAt: "2024-01-10",
     },
     {
       id: 2,
       name: "Test freelancer",
       location: "København NV",
+      rating: 5,
+      createdAt: "2024-03-05",
     },
   ];
+  const sortedFreelancers = useMemo(() => {
+    let sorted = [...freelancers];
+
+    switch (sortBy) {
+      case "rating":
+        sorted.sort((a, b) => b.rating - a.rating);
+        break;
+      case "name":
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case "recent":
+        sorted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        break;
+      default:
+        break;
+    }
+
+    // if (order === "asc") {
+    //   sorted.reverse();
+    // }
+
+    return sorted.slice(0, perPage);
+  }, [freelancers, sortBy, perPage]);
 
   return (
     <div className=" w-full  ">
@@ -152,12 +182,39 @@ const FindFreelancers = () => {
               Showing 1 – 7 of 7 companies
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 text-center   items-center gap-3">
-              <div className="border px-4 py-2 rounded-lg text-sm">
-                Most Popular
-              </div>
-              <div className="border px-4 py-2 rounded-lg text-sm">DESC</div>
-              <div className="border px-4 py-2 rounded-lg text-sm">12</div>
+            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 text-center items-center gap-3">
+              {/* Sort By */}
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="border px-4 py-2 rounded-lg text-sm"
+              >
+                <option value="popular">Most Popular</option>
+                <option value="rating">Highest Rated</option>
+                <option value="name">Name (A-Z)</option>
+                <option value="recent">Recently Joined</option>
+              </select>
+
+              {/* Order */}
+              {/* <select
+                value={order}
+                onChange={(e) => setOrder(e.target.value)}
+                className="border px-4 py-2 rounded-lg text-sm"
+              >
+                <option value="desc">DESC</option>
+                <option value="asc">ASC</option>
+              </select> */}
+
+              {/* Per Page */}
+              <select
+                value={perPage}
+                onChange={(e) => setPerPage(Number(e.target.value))}
+                className="border px-4 py-2 rounded-lg text-sm"
+              >
+                <option value={6}>6</option>
+                <option value={12}>12</option>
+                <option value={24}>24</option>
+              </select>
 
               <div className="my-4 lg:my-0 flex">
                 <button className=" p-2 border rounded-lg hover:!bg-blue-700  hover:!text-white">
@@ -167,19 +224,12 @@ const FindFreelancers = () => {
                   <List size={18} className="" />
                 </button>
               </div>
-
-              <Button
-                type="primary"
-                className=" text-white px-5 py-2 rounded-lg font-medium"
-              >
-                View Map
-              </Button>
             </div>
           </div>
           <hr />
           {/* CARDS GRID */}
           <div className="grid grid-cols-1  gap-4 mt-4 pb-8">
-            {freelancers.map((item) => (
+            {sortedFreelancers.map((item) => (
               <div
                 key={item.id}
                 className="bg-white rounded-2xl p-4 shadow-xl hover:shadow-lg transition relative"
@@ -188,7 +238,7 @@ const FindFreelancers = () => {
                 <div className="flex flex-col lg:flex-row items-center justify-between">
                   <div className="flex items-center gap-5">
                     {/* Avatar */}
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center">
+                    <div className="sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center">
                       <svg
                         className="w-10 h-10 text-white"
                         fill="currentColor"
@@ -221,7 +271,7 @@ const FindFreelancers = () => {
                   </div>
 
                   {/* Right Section */}
-                  <div className="flex flex-col gap-3 ">
+                  <div className="flex flex-col sm:flex-row lg:flex-col gap-3 ">
                     <button className="flex items-center justify-center gap-2 px-6 py-2 border rounded-lg text-gray-600 hover:bg-gray-50 transition ">
                       <Heart size={16} />
                       Save
