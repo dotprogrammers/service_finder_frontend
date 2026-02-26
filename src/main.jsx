@@ -38,5 +38,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </PersistGate>
       </Provider>
     </ConfigProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

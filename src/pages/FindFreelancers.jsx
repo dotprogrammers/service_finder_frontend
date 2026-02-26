@@ -78,7 +78,7 @@ const FindFreelancers = () => {
              lg:sticky lg:top-0
               shadow-2xl rounded"
         >
-          <h2 className="!text-sm font-semibold w-full px-3 p-4 bg-[#667eea] mb-3 text-white rounded-xl rounded-b-none">
+          <h2 className="!text-sm font-semibold w-full px-3 p-4 bg-[#6AB33E] mb-3 text-white rounded-xl rounded-b-none">
             Search Freelancers
           </h2>
 
@@ -167,9 +167,15 @@ const FindFreelancers = () => {
 
           <div className="flex  items-center justify-center gap-2 bg-[#667eea] mt-4 py-2 w-full rounded-lg">
             <SearchIcon className="text-white" size={16} />
-            <button className=" text-white  font-medium gap-2">
+            {/* <button className=" text-white  font-medium gap-2">
               Search Freelancers
-            </button>
+            </button> */}
+            <Button
+              type="primary"
+              className=" text-white px-5 py-2 rounded-lg font-medium"
+            >
+              View Map
+            </Button>
           </div>
           <hr />
         </div>
@@ -217,12 +223,18 @@ const FindFreelancers = () => {
               </select>
 
               <div className="my-4 lg:my-0 flex">
-                <button className=" p-2 border rounded-lg hover:!bg-blue-700  hover:!text-white">
+                <Button
+                  type="primary"
+                  className=" p-2 border rounded-lg hover:!bg-primary/[.01]  hover:!text-white"
+                >
                   <Grid2X2 size={18} className="" />{" "}
-                </button>
-                <button className=" p-2 border rounded-lg hover:!bg-blue-700 hover:!text-white">
+                </Button>
+                <Button
+                  type="primary"
+                  className=" p-2 border rounded-lg hover:!bg-primary/[.01]  hover:!text-white"
+                >
                   <List size={18} className="" />
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -277,10 +289,13 @@ const FindFreelancers = () => {
                       Save
                     </button>
 
-                    <button className="flex items-center justify-center gap-2 px-6 py-2 bg-[#667eea] text-white rounded-lg hover:bg-[#667eea] transition">
+                    <Button
+                      type="primary"
+                      className="flex items-center justify-center gap-2 px-6 py-2 bg-[#667eea] text-white rounded-lg hover:bg-[#667eea] transition"
+                    >
                       <Eye size={16} />
                       View Profile
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>
