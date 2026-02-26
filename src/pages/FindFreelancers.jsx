@@ -164,18 +164,11 @@ const FindFreelancers = () => {
               </label>
             </div>
           </div>
-
-          <div className="flex  items-center justify-center gap-2 bg-[#667eea] mt-4 py-2 w-full rounded-lg">
+          <div className="flex  items-center justify-center m-4 gap-2 bg-[#667eea]  py-2  rounded-lg">
             <SearchIcon className="text-white" size={16} />
-            {/* <button className=" text-white  font-medium gap-2">
+            <button className=" text-white  font-medium ">
               Search Freelancers
-            </button> */}
-            <Button
-              type="primary"
-              className=" text-white px-5 py-2 rounded-lg font-medium"
-            >
-              View Map
-            </Button>
+            </button>
           </div>
           <hr />
         </div>

@@ -216,14 +216,14 @@ const Search = () => {
         </div>
 
         {/* ================= RIGHT CONTENT ================= */}
-        <div className="lg:pr-5 col-span-12  lg:col-span-9">
+        <div className=" lg:pr-5 col-span-12  lg:col-span-9">
           {/* TOP BAR */}
-          <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between mt-[45px] mb-2 ">
-            <p className="text-sm text-gray-600 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-4 justify-between mt-[45px] mb-2 ">
+            <p className="text-sm text-gray-600 flex justify-center sm:justify-start">
               Showing 1 – 12 of 12 results
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 text-center   items-center gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-5  text-center   items-center gap-3">
               <div className="border px-4 py-2 rounded-lg text-sm">SORT BY</div>
               <div className="border px-4 py-2 rounded-lg text-sm">DESC</div>
               <div className="border px-4 py-2 rounded-lg text-sm">12</div>
