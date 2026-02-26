@@ -1,4 +1,5 @@
 import Countdown from "react-countdown";
+import { useGetHomePageContentQuery } from "../../redux/features/cms/cmsApi";
 
 export default function StatsBar() {
     const stats = [
@@ -7,6 +8,10 @@ export default function StatsBar() {
         { value: 1151, label: "Byer i Danmark" },
         { value: 34, label: "Udførte Opgaver" },
     ];
+
+    const { data, isLoading } = useGetHomePageContentQuery();
+
+    console.log(data, isLoading);
 
     return (
         <section className="w-full bg-[#1f1f1f]">
