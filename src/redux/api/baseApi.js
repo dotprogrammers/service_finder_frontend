@@ -2,20 +2,16 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { logOut, setUser } from "../features/auth/authSlice";
 import { tagTypesList } from "../tagTypes";
 
-const skipAuthEndpoints = ["getCmsContent"];
+const skipAuthEndpoints = ["getHomePageContent"];
 
+const API_ORIGIN = import.meta.env.VITE_BASE_URL || "";
 const baseQuery = fetchBaseQuery({
-  baseUrl: `${import.meta.env.VITE_BASE_URL}/api/v1`,
-  // credentials: "include",
+  baseUrl: `${API_ORIGIN}/admin/api/v1`,
   prepareHeaders: (headers, { getState, endpoint }) => {
-    if (skipAuthEndpoints.includes(endpoint)) {
-      return headers;
-    }
+    if (skipAuthEndpoints.includes(endpoint)) return headers;
 
     const token = getState().auth.token;
-    if (token) {
-      headers.set("Authorization", `Bearer ${token}`);
-    }
+    if (token) headers.set("Authorization", `Bearer ${token}`);
 
     return headers;
   },
@@ -31,7 +27,7 @@ const BaseQueryWithRefreshToken = async (args, api, extraOptions) => {
     console.log("Attempting token refresh...");
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/refresh`, {
+      const res = await fetch(`${API_ORIGIN}/admin/api/v1/refresh`, {
         method: "POST",
         credentials: "include",
       });
