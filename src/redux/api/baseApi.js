@@ -5,8 +5,8 @@ import { tagTypesList } from "../tagTypes";
 const skipAuthEndpoints = ["getCmsContent"];
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: `${import.meta.env.VITE_BASE_URL}/api`,
-  credentials: "include",
+  baseUrl: `${import.meta.env.VITE_BASE_URL}/api/v1`,
+  // credentials: "include",
   prepareHeaders: (headers, { getState, endpoint }) => {
     if (skipAuthEndpoints.includes(endpoint)) {
       return headers;
