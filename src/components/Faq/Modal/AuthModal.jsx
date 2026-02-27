@@ -1,115 +1,215 @@
-import { Mail } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Modal, Tabs, Form, Input, Button, message } from "antd";
+import { MailOutlined, LockOutlined, UserOutlined } from "@ant-design/icons";
 
 export default function AuthModal({ open, onClose, initialTab }) {
-  const [activeTab, setActiveTab] = useState("Sign In");
+  const [activeTab, setActiveTab] = useState("signin");
+  const [signInForm] = Form.useForm();
+  const [signUpForm] = Form.useForm();
 
-  // 👇 যখন modal open হবে তখন dropdown থেকে আসা tab সেট হবে
   useEffect(() => {
-    if (open && initialTab) {
-      setActiveTab(initialTab === "signup" ? "signup" : "Sign In");
+    if (open) {
+      setActiveTab(initialTab === "signup" ? "signup" : "signin");
+      signInForm.resetFields();
+      signUpForm.resetFields();
     }
-  }, [open, initialTab]);
+  }, [open, initialTab, signInForm, signUpForm]);
 
-  if (!open) return null;
+  const handleCancel = () => {
+    onClose?.();
+  };
+
+  const onSignInFinish = async (values) => {
+    // TODO: connect your API here
+    // console.log("Sign In:", values);
+    message.success("Signed in (demo).");
+    onClose?.();
+  };
+
+  const onSignUpFinish = async (values) => {
+    // TODO: connect your API here
+    // console.log("Sign Up:", values);
+    message.success("Account created (demo).");
+    onClose?.();
+  };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-      <div className=" bg-white rounded-xl w-full max-w-[400px] mx-4 p-6 relative">
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
-        >
-          ×
-        </button>
-
-        {/* Tabs */}
-        <div className="flex mb-6 ">
-          <button
-            onClick={() => setActiveTab("Sign In")}
-            className={`flex-1 py-2 text-center font-medium  ${
-              activeTab === "Sign In"
-                ? "border-b-2 border-yellow-500 text-gray-900"
-                : "border-b-2 border-transparent text-gray-500"
-            }`}
-          >
-            Sign In
-          </button>
-          <button
-            onClick={() => setActiveTab("signup")}
-            className={`flex-1 py-2 text-center font-medium    ${
-              activeTab === "signup"
-                ? "border-b-2 border-yellow-500 text-gray-900"
-                : "border-b-2 border-transparent text-gray-500"
-            }`}
-          >
-            Sign Up
-          </button>
-        </div>
-
-        {/* Form */}
-        {activeTab === "Sign In" ? (
-          <form className="space-y-4">
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="w-full border rounded px-3 py-2"
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className="w-full border rounded px-3 py-2"
-            />
-            {/* Switch to signup */}
-            <p className="text-center text-sm pt-4">
-              Don't have an account?
-              <span
-                onClick={() => setActiveTab("signup")}
-                className="text-yellow-500 pl-2 cursor-pointer"
+    <Modal
+      open={open}
+      onCancel={handleCancel}
+      footer={null}
+      centered
+      destroyOnClose
+      width={420}
+    >
+      <Tabs
+        activeKey={activeTab}
+        onChange={(key) => setActiveTab(key)}
+        items={[
+          {
+            key: "signin",
+            label: "Sign In",
+            children: (
+              <Form
+                form={signInForm}
+                layout="vertical"
+                onFinish={onSignInFinish}
+                requiredMark={false}
               >
-                Sign up here
-              </span>
-            </p>
-            <button className="w-full bg-yellow-500 text-white pb-2 rounded">
-              Sign In
-            </button>
-          </form>
-        ) : (
-          <form className="space-y-4">
-            <input
-              type="text"
-              placeholder="Full Name"
-              className="w-full border rounded px-3 py-2"
-            />
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="w-full border rounded px-3 py-2"
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className="w-full border rounded px-3 py-2"
-            />
+                <Form.Item
+                  label="Email Address"
+                  name="email"
+                  rules={[
+                    { required: true, message: "Please enter your email." },
+                    { type: "email", message: "Please enter a valid email." },
+                  ]}
+                >
+                  <Input
+                    placeholder="Email Address"
+                    prefix={<MailOutlined />}
+                    autoComplete="email"
+                  />
+                </Form.Item>
 
-            {/* Switch to Sign In */}
-            <p className="text-center text-sm pt-4">
-              Already have an account?
-              <span
-                onClick={() => setActiveTab("Sign In")}
-                className="text-yellow-500 pl-2 cursor-pointer"
+                <Form.Item
+                  label="Password"
+                  name="password"
+                  rules={[
+                    { required: true, message: "Please enter your password." },
+                    { min: 6, message: "Password must be at least 6 characters." },
+                  ]}
+                >
+                  <Input.Password
+                    placeholder="Password"
+                    prefix={<LockOutlined />}
+                    autoComplete="current-password"
+                  />
+                </Form.Item>
+
+                <div className="text-center text-sm mb-4">
+                  Don&apos;t have an account?
+                  <span
+                    onClick={() => setActiveTab("signup")}
+                    className="text-yellow-500 pl-2 cursor-pointer"
+                  >
+                    Sign up here
+                  </span>
+                </div>
+
+                <Button
+                  htmlType="submit"
+                  type="primary"
+                  block
+                >
+                  Sign In
+                </Button>
+              </Form>
+            ),
+          },
+          {
+            key: "signup",
+            label: "Sign Up",
+            children: (
+              <Form
+                form={signUpForm}
+                layout="vertical"
+                onFinish={onSignUpFinish}
+                requiredMark={false}
               >
-                Sign In here
-              </span>
-            </p>
-            <button className="w-full bg-yellow-500 text-white pb-2 rounded">
-              Sign Up
-            </button>
-          </form>
-        )}
-      </div>
-    </div>
+                <Form.Item
+                  label="Full Name"
+                  name="name"
+                  rules={[
+                    { required: true, message: "Please enter your full name." },
+                    { min: 2, message: "Name must be at least 2 characters." },
+                  ]}
+                >
+                  <Input
+                    placeholder="Full Name"
+                    prefix={<UserOutlined />}
+                    autoComplete="name"
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  label="Email Address"
+                  name="email"
+                  rules={[
+                    { required: true, message: "Please enter your email." },
+                    { type: "email", message: "Please enter a valid email." },
+                  ]}
+                >
+                  <Input
+                    placeholder="Email Address"
+                    prefix={<MailOutlined />}
+                    autoComplete="email"
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  label="Password"
+                  name="password"
+                  rules={[
+                    { required: true, message: "Please enter a password." },
+                    { min: 6, message: "Password must be at least 6 characters." },
+                  ]}
+                  hasFeedback
+                >
+                  <Input.Password
+                    placeholder="Password"
+                    prefix={<LockOutlined />}
+                    autoComplete="new-password"
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  label="Confirm Password"
+                  name="confirmPassword"
+                  dependencies={["password"]}
+                  hasFeedback
+                  rules={[
+                    { required: true, message: "Please confirm your password." },
+                    ({ getFieldValue }) => ({
+                      validator(_, value) {
+                        if (!value || getFieldValue("password") === value) {
+                          return Promise.resolve();
+                        }
+                        return Promise.reject(
+                          new Error("Passwords do not match.")
+                        );
+                      },
+                    }),
+                  ]}
+                >
+                  <Input.Password
+                    placeholder="Confirm Password"
+                    prefix={<LockOutlined />}
+                    autoComplete="new-password"
+                  />
+                </Form.Item>
+
+                <div className="text-center text-sm mb-4">
+                  Already have an account?
+                  <span
+                    onClick={() => setActiveTab("signin")}
+                    className="text-yellow-500 pl-2 cursor-pointer"
+                  >
+                    Sign In here
+                  </span>
+                </div>
+
+                <Button
+                  htmlType="submit"
+                  type="primary"
+                  block
+                >
+                  Sign Up
+                </Button>
+              </Form>
+            ),
+          },
+        ]}
+      />
+    </Modal>
   );
 }
