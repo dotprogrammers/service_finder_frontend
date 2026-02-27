@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Plane } from "lucide-react";
 
 const Faq = () => {
@@ -79,12 +79,12 @@ const Faq = () => {
 
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-12 ">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between text-white">
-          <div>
-            <h3 className="text-4xl font-bold text-white">
+        <div className="max-w-5xl mx-auto gap-2 flex flex-col lg:flex-row items-center justify-between text-white">
+          <div className="flex flex-col items-center lg:items-start">
+            <h3 className="!text-xl sm:text-4xl font-bold text-white">
               Ready to Grow Your Business?
             </h3>
-            <p className="text-sm mt-2 opacity-90 text-white">
+            <p className="text-sm mt-2 opacity-90 text-white text-center sm:left">
               Join thousands of service providers already growing their business
               with us.
             </p>
