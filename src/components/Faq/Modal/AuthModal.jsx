@@ -90,7 +90,7 @@ export default function AuthModal({ open, onClose, initialTab }) {
                   Don&apos;t have an account?
                   <span
                     onClick={() => setActiveTab("signup")}
-                    className="text-yellow-500 pl-2 cursor-pointer"
+                    className="text-green-500 pl-2 cursor-pointer"
                   >
                     Sign up here
                   </span>
@@ -192,7 +192,7 @@ export default function AuthModal({ open, onClose, initialTab }) {
                   Already have an account?
                   <span
                     onClick={() => setActiveTab("signin")}
-                    className="text-yellow-500 pl-2 cursor-pointer"
+                    className="text-green-500 pl-2 cursor-pointer"
                   >
                     Sign In here
                   </span>
