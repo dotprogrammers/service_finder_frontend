@@ -79,16 +79,16 @@ const BlogPage = () => {
           </div>
         </div>
 
-        <div className="px-4 aon-why-choose2-area grid lg:grid-cols-3 gap-8">
+        <div className=" aon-why-choose2-area grid  grid-cols-12 gap-8 ">
           {/* LEFT SIDE */}
-          <div className="lg:col-span-2">
+          <div className="col-span-12 lg:col-span-8">
             {/* Blog Grid */}
-            <div className=" grid sm:grid-cols-2 gap-6">
+            <div className=" grid sm:grid-cols-2  gap-4 ">
               {posts.map((post) => (
                 <div
                   key={post.id}
                   onClick={() => navigate(`/blog/${post.id}`)}
-                  className="bg-white border-b-4 border-t-none border-l-none border-r-none border-b-[#073088] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition"
+                  className="bg-white border-b-4 border-t-none border-l-none border-r-none border-b-[#073088]  rounded-xl  shadow-sm hover:shadow-md transition overflow-hidden"
                 >
                   {/* Image Placeholder */}
                   <div className="bg-gray-300 h-[200px] flex items-center justify-center text-gray-500 text-xl rounded-xl relative">
@@ -146,7 +146,7 @@ const BlogPage = () => {
           </div>
 
           {/* RIGHT SIDEBAR */}
-          <div className="space-y-8">
+          <div className="space-y-8 col-span-12 lg:col-span-4">
             {/* Search */}
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <div className="flex items-center gap-3 mb-4">
